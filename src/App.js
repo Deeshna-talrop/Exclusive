@@ -1,10 +1,14 @@
 import Home from "./components/screens/Home";
+import Headers from "./components/includes/Header";
 import "./App.css";
 
 function App() {
   return (
     <>
-      <Home />
+      <Headers />
+      <div className="wrapper">
+        <Home />
+      </div>
     </>
   );
 }
