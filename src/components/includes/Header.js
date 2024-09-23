@@ -48,31 +48,26 @@ export default function Header() {
         />
         <NavBarList>
           <li style={{ fontWeight: "600", textDecoration: "underline" }}>
-            Home
+            <a href="/">Home</a>
           </li>
-          <li>Contact</li>
-          <li>About</li>
-          <li>Sign Up</li>
+          <li>
+            <a href="/"> Contact</a>
+          </li>
+          <li>
+            <a href="/"> About</a>
+          </li>
+          <li>
+            <a href="/"> Sign Up</a>
+          </li>
         </NavBarList>
         <NavBarRight>
           <Input placeholder="What are you looking for?" />
-          <img
-            src={WishList}
-            alt="wishlist"
-            style={{
-              width: "32px",
-              height: "32px",
-              marginRight: "10px",
-            }}
-          />
-          <img
-            src={Cart}
-            alt="cart"
-            style={{
-              width: "32px",
-              height: "32px",
-            }}
-          />
+          <a href="">
+            <img src={WishList} alt="wishlist" />
+          </a>
+          <a href="">
+            <img src={Cart} alt="cart" />
+          </a>
         </NavBarRight>
       </NavBar>
     </HeaderContainer>
@@ -151,20 +146,21 @@ const NavBarList = styled.ul`
   align-items: center;
   list-style: none;
   margin-left: 40px;
-  li {
+  li a {
     margin: 0 20px;
     font-size: 16px;
-  }
-  li:hover {
-    cursor: pointer;
-    text-decoration: underline;
-    font-weight: 500;
-  }
-  li:last-child {
-    margin-right: 0;
-  }
-  li:first-child {
-    margin-left: 0;
+    color: #000;
+    text-decoration: none;
+    a:hover {
+      text-decoration: underline;
+      font-weight: 500;
+    }
+    li:last-child {
+      margin-right: 0;
+    }
+    li:first-child {
+      margin-left: 0;
+    }
   }
 `;
 
@@ -174,6 +170,12 @@ const NavBarRight = styled.div`
   justify-content: center;
   align-items: center;
   margin-left: 20px;
+  a img {
+    width: "32px",
+    height: "32px",
+    marginRight: "10px",
+
+  }
 `;
 const Input = styled.input`
   background-image: url(${Search});

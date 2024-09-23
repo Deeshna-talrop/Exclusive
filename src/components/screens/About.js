@@ -10,16 +10,16 @@ const AboutList = [
     description: "Free delivery for all orders over $140",
   },
   {
-    id: 1,
+    id: 2,
     image: Customer,
     title: "24/7 CUSTOMER SERVICE",
     description: "Friendly 24/7 customer support",
   },
   {
-    id: 1,
+    id: 3,
     image: Safety,
     title: "MONEY BACK GUARANTEE",
-    description: "We reurn money within 30 days",
+    description: "We return money within 30 days",
   },
 ];
 export default function About() {
@@ -45,6 +45,7 @@ const AboutContainer = styled.div`
   align-items: center;
   gap: 88px;
   margin: 0 auto;
+  margin-bottom: 60px;
 `;
 
 const AboutListConatiner = styled.div`

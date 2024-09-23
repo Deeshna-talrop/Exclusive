@@ -5,6 +5,7 @@ import HeroImage from "../../assets/hero.jpg";
 import Apple from "../../assets/apple.svg";
 import Arrow from "../../assets/arrow-right.svg";
 import { AppleIcon } from "lucide-react";
+import About from "./About";
 export default function Home() {
   return (
     <HomeContainer>
@@ -24,6 +25,7 @@ export default function Home() {
       </SpotlightConatiner>
 
       <Categories />
+      <About />
     </HomeContainer>
   );
 }
@@ -75,7 +77,7 @@ const Title = styled.div`
   margin-bottom: 20px;
 `;
 
-const Button = styled.button`
+const Button = styled.a`
   display: flex;
   flex-direction: row;
   border: none;

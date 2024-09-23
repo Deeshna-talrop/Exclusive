@@ -139,7 +139,7 @@ export default function Categories() {
                   <img src={WishList} alt="Wish List" />
                   <img src={QuickView} alt="Quick View" />
                 </IconList>
-                <a href="/">Add To Cart</a>
+                <button>Add To Cart</button>
               </ProductImage>
               <ProductInfo>
                 <ProductName>{category.name}</ProductName>
@@ -303,12 +303,12 @@ const ProductImage = styled.div`
     object-position: center;
   }
   &:hover {
-    a {
+    button {
       visibility: visible;
       opacity: 1;
     }
   }
-  a {
+  button {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -320,9 +320,11 @@ const ProductImage = styled.div`
     color: #fff;
     text-decoration: none;
     background-color: #000;
+    border: none;
     border-radius: 0 0 6px 6px;
     visibility: hidden;
     opacity: 0;
+    cursor: pointer;
     transition: visibility 0.3s linear, opacity 0.3s linear;
   }
 `;
