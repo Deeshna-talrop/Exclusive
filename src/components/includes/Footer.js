@@ -107,26 +107,28 @@ export default function Footer() {
             <button type="submit"></button>
           </Input>
         </FooterListFirst>
-        <FooterList>
-          <FooterListTitle>Support</FooterListTitle>
-          <FooterListLink>
-            111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.
-          </FooterListLink>
-          <FooterListLink href="mailto:exclusive@example.com">
-            exclusive@gmail.com
-          </FooterListLink>
-          <FooterListLink href="tel://1-555-555-5555">
-            +88015-88888-9999
-          </FooterListLink>
-        </FooterList>
-        {FooterListContent.map((footer) => (
+        <FooterListCenter>
           <FooterList>
-            <FooterListTitle>{footer.title}</FooterListTitle>
-            {footer.content.map((content) => (
-              <FooterListLink href="/">{content.text}</FooterListLink>
-            ))}
+            <FooterListTitle>Support</FooterListTitle>
+            <FooterListLink style={{ width: "175px", whiteSpace: "normal" }}>
+              111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.
+            </FooterListLink>
+            <FooterListLink href="mailto:exclusive@example.com">
+              exclusive@gmail.com
+            </FooterListLink>
+            <FooterListLink href="tel://1-555-555-5555">
+              +88015-88888-9999
+            </FooterListLink>
           </FooterList>
-        ))}
+          {FooterListContent.map((footer) => (
+            <FooterList>
+              <FooterListTitle>{footer.title}</FooterListTitle>
+              {footer.content.map((content) => (
+                <FooterListLink href="/">{content.text}</FooterListLink>
+              ))}
+            </FooterList>
+          ))}
+        </FooterListCenter>
         <FooterListLast>
           <h1>Download App</h1>
           <p>Save $3 with App New User Only</p>
@@ -162,8 +164,7 @@ const FooterContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  border-top: 1px solid #000;
+  margin: 0 auto;
   background-color: #000;
   color: #fff;
   width: 100%;
@@ -172,17 +173,33 @@ const FooterContainer = styled.div`
     color: rgba(255, 255, 255, 0.2);
     font-size: 14px;
     text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 20px;
   }
 `;
 
 const FooterListContainer = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: flex-start;
-  padding: 80px 135px;
+  padding: 80px 0px;
   gap: 64px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  margin: 0 auto;
+  width: 90%;
+  @media screen and (max-width: 1024px) {
+    justify-content: space-between;
+    padding: 80px 12px;
+    gap: 100px;
+  }
+  @media screen and (max-width: 820px) {
+    gap: 80px;
+    padding: 40px 0px;
+  }
+  @media screen and (max-width: 680px) {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
 `;
 const FooterListFirst = styled.div`
   display: flex;
@@ -197,12 +214,20 @@ const FooterListFirst = styled.div`
     font-weight: 700;
     margin: 0;
     margin-bottom: 20px;
+    @media screen and (max-width: 820px) {
+      font-size: 20px;
+      margin-bottom: 18px;
+    }
   }
   h2 {
     font-size: 20px;
     font-weight: 700;
     margin: 0;
     margin-bottom: 16px;
+    @media screen and (max-width: 820px) {
+      font-size: 16px;
+      margin-bottom: 14px;
+    }
   }
   p {
     font-size: 14px;
@@ -211,8 +236,13 @@ const FooterListFirst = styled.div`
     margin-bottom: 16px;
     text-align: left;
     white-space: nowrap;
+    border: none;
+    padding: 0;
   }
-}
+
+  @media screen and (max-width: 680px) {
+    width: 50%;
+  }
 `;
 const Input = styled.form`
   display: flex;
@@ -251,7 +281,23 @@ const Input = styled.form`
     cursor: pointer;
   }
 `;
-
+const FooterListCenter = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 64px;
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+    gap: 12px;
+    white-space: nowrap;
+  }
+  @media screen and (max-width: 620px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+`;
 const FooterList = styled.ul`
   display: flex;
   flex-direction: column;
@@ -261,22 +307,44 @@ const FooterList = styled.ul`
   margin: 0;
   width: 100%;
   list-style: none;
+  @media screen and (max-width: 620px) {
+    width: auto;
+  }
 `;
 
 const FooterListTitle = styled.li`
   font-size: 20px;
   font-weight: 500;
   margin-bottom: 20px;
+  width: auto;
+  white-space: nowrap;
+  @media screen and (max-width: 820px) {
+    font-size: 18px;
+  }
+  @media screen and (max-width: 620px) {
+    white-space: normal;
+  }
 `;
 
 const FooterListLink = styled.a`
   font-size: 14px;
   color: #fff;
-  width: 175px;
   text-decoration: none;
   margin-bottom: 16px;
+  width: auto;
+  white-space: nowrap;
   &:hover {
     text-decoration: underline;
+  }
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
+  @media screen and (max-width: 620px) {
+    display: block;
+    font-size: 12px;
+  }
+  @media screen and (max-width: 620px) {
+    white-space: normal;
   }
 `;
 
@@ -298,6 +366,8 @@ const FooterListLast = styled.div`
     margin: 0;
     margin-bottom: 12px;
     color: rgba(250, 250, 250, 0.7);
+    padding: 0;
+    border: none;
   }
 `;
 

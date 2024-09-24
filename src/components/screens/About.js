@@ -42,10 +42,28 @@ const AboutContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: 88px;
   margin: 0 auto;
   margin-bottom: 60px;
+  @media screen and (max-width: 1024px) {
+    gap: 64px;
+    margin-bottom: 40px;
+  }
+  @media screen and (max-width: 960px) {
+    gap: 56px;
+  }
+  @media screen and (max-width: 820px) {
+    gap: 40px;
+  }
+  @media screen and (max-width: 760px) {
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  @media screen and (max-width: 620px) {
+    gap: 24px;
+    flex-direction: column;
+  }
 `;
 
 const AboutListConatiner = styled.div`
@@ -56,6 +74,10 @@ const AboutListConatiner = styled.div`
   margin-top: 60px;
   margin-bottom: 60px;
   width: 100%;
+  @media screen and (max-width: 820px) {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
 `;
 
 const Icon = styled.div`
@@ -72,6 +94,33 @@ const Icon = styled.div`
     padding: 10px;
     background-color: #000;
     border-radius: 50%;
+    @media screen and (max-width: 1024px) {
+      width: 30px;
+      height: 30px;
+      padding: 8px;
+    }
+    @media screen and (max-width: 960px) {
+      width: 24px;
+      height: 24px;
+      padding: 6px;
+    }
+    @media screen and (max-width: 820px) {
+      width: 24px;
+      height: 24px;
+      padding: 4px;
+    }
+  }
+  @media screen and (max-width: 1024px) {
+    padding: 10px;
+  }
+  @media screen and (max-width: 960px) {
+    padding: 8px;
+  }
+  @media screen and (max-width: 820px) {
+    padding: 6px;
+  }
+  @media screen and (max-width: 720px) {
+    padding: 4px;
   }
 `;
 
@@ -82,6 +131,17 @@ const Title = styled.h1`
   text-align: center;
   color: #000;
   white-space: nowrap;
+  @media screen and (max-width: 1024px) {
+    font-size: 18px;
+    margin: 16px 0 8px 0;
+  }
+  @media screen and (max-width: 960px) {
+    font-size: 16px;
+    margin: 12px 0 6px 0;
+  }
+  @media screen and (max-width: 720px) {
+    font-size: 14px;
+  }
 `;
 
 const Description = styled.p`
@@ -90,4 +150,12 @@ const Description = styled.p`
   margin: 0;
   text-align: center;
   color: #000;
+  @media screen and (max-width: 960px) {
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  @media screen and (max-width: 720px) {
+    font-size: 12px;
+    white-space: normal;
+  }
 `;
