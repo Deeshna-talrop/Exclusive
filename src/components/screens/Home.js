@@ -1,32 +1,36 @@
 import styled from "styled-components";
 import Categories from "./Categories";
 
+import Footer from "../includes/Footer";
+import Headers from "../includes/Header";
+
 import HeroImage from "../../assets/hero.jpg";
 import Apple from "../../assets/apple.svg";
 import Arrow from "../../assets/arrow-right.svg";
-import { AppleIcon } from "lucide-react";
 import About from "./About";
 export default function Home() {
   return (
-    <HomeContainer>
-      <SpotlightConatiner>
-        <Left>
-          <TextLogo>
-            <Image src={Apple} alt="Image" />
-            <p>Iphone 14 Series</p>
-          </TextLogo>
-          <Title>Up to 10% off Voucher</Title>
-          <Button>
-            Shop Now
-            <img src={Arrow} alt="Image" />
-          </Button>
-        </Left>
-        <HeroImageContainer src={HeroImage} alt="Image" />
-      </SpotlightConatiner>
+    <>
+      <HomeContainer>
+        <SpotlightConatiner>
+          <Left>
+            <TextLogo>
+              <Image src={Apple} alt="Image" />
+              <p>Iphone 14 Series</p>
+            </TextLogo>
+            <Title>Up to 10% off Voucher</Title>
+            <Button>
+              Shop Now
+              <img src={Arrow} alt="Image" />
+            </Button>
+          </Left>
+          <HeroImageContainer src={HeroImage} alt="Image" />
+        </SpotlightConatiner>
 
-      <Categories />
-      <About />
-    </HomeContainer>
+        <Categories />
+        <About />
+      </HomeContainer>
+    </>
   );
 }
 

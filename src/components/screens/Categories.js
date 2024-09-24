@@ -10,6 +10,8 @@ import Star from "../../assets/Star.svg";
 import StarUnfilled from "../../assets/Star-unfilled.svg";
 import QuickView from "../../assets/Quick View.svg";
 import WishList from "../../assets/wishlist.svg";
+import ProductPage from "./ProductPage";
+import { Link } from "react-router-dom";
 
 const CategoriesListContent = [
   {
@@ -44,73 +46,6 @@ const CategoriesListContent = [
   },
 ];
 
-const CategoryContent = [
-  {
-    id: 1,
-    name: "Breed Dry Dog Food",
-    image: require("../../assets/Dogfood.png"),
-    price: "$100",
-    rating: "4.9",
-    category: "Dogs",
-  },
-  {
-    id: 2,
-    name: "CANON EOS DSLR Camera",
-    image: require("../../assets/Camera.png"),
-    price: "$100",
-    rating: "4.9",
-    category: "Dogs",
-  },
-  {
-    id: 3,
-    name: "ASUS FHD Gaming Laptop",
-    image: require("../../assets/Laptop.png"),
-    price: "$100",
-    rating: "4.9",
-    category: "Dogs",
-  },
-  {
-    id: 4,
-    name: "Curology Product Set ",
-    image: require("../../assets/Cosmetics.png"),
-    price: "$100",
-    rating: "4.9",
-    category: "Dogs",
-  },
-  {
-    id: 5,
-    name: "Kids Electric Car",
-    image: require("../../assets/Car.png"),
-    price: "$100",
-    rating: "4.9",
-    category: "Dogs",
-  },
-  {
-    id: 6,
-    name: "Jr. Zoom Soccer Cleats",
-    image: require("../../assets/Shoe.png"),
-    price: "$100",
-    rating: "4.9",
-    category: "Dogs",
-  },
-  {
-    id: 7,
-    name: "GP11 Shooter USB Gamepad",
-    image: require("../../assets/Game.png"),
-    price: "$100",
-    rating: "4.9",
-    category: "Dogs",
-  },
-  {
-    id: 8,
-    name: "Quilted Satin Jacket",
-    image: require("../../assets/Jacket.png"),
-    price: "$100",
-    rating: "4.9",
-    category: "Dogs",
-  },
-];
-
 export default function Categories() {
   return (
     <CategoriesContainer>
@@ -129,40 +64,11 @@ export default function Categories() {
           ))}
         </CategoriesListContainer>
       </Category>
-      <ProductConatiner>
-        <ProductList>
-          {CategoryContent.map((category) => (
-            <Product>
-              <ProductImage>
-                <img src={category.image} alt="Image" />
-                <IconList>
-                  <img src={WishList} alt="Wish List" />
-                  <img src={QuickView} alt="Quick View" />
-                </IconList>
-                <button>Add To Cart</button>
-              </ProductImage>
-              <ProductInfo>
-                <ProductName>{category.name}</ProductName>
-                <ProductDetails>
-                  <ProductPrice>{category.price}</ProductPrice>
-                  <ProductRating>
-                    <StarListing>
-                      <RatingStar src={Star} alt="Image" />
-                      <RatingStar src={Star} alt="Image" />
-                      <RatingStar src={Star} alt="Image" />
-                      <RatingStar src={Star} alt="Image" />
-                      <RatingStar src={Star} alt="Image" />
-                      <RatingStar src={StarUnfilled} alt="Image" />
-                    </StarListing>
-                    <p>({category.rating})</p>
-                  </ProductRating>
-                </ProductDetails>
-              </ProductInfo>
-            </Product>
-          ))}
-        </ProductList>
+      <ProductPage />
+
+      <Link to="/products" style={{ textDecoration: "none" }}>
         <ViewAllButton>View All Products</ViewAllButton>
-      </ProductConatiner>
+      </Link>
     </CategoriesContainer>
   );
 }

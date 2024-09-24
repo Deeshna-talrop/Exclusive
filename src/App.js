@@ -1,17 +1,24 @@
 import Home from "./components/screens/Home";
-import Headers from "./components/includes/Header";
+import Layout from "./components/screens/Layout";
+import ReactDOM from "react-dom/client";
+import { Router, Routes, Route, BrowserRouter } from "react-router-dom";
+
 import "./App.css";
-import About from "./components/screens/About";
-import Footer from "./components/includes/Footer";
+import Products from "./components/screens/Products";
+import Product from "./components/screens/Product";
 
 function App() {
   return (
-    <>
-      <Headers />
-      <Home />
-      <Footer />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route index path="/" element={<Layout />} />
+        <Route path="products/" element={<Products />} />
+        <Route path="product/" element={<Product />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
 export default App;
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<App />);
