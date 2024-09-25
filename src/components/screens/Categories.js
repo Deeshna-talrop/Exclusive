@@ -6,10 +6,6 @@ import Headphone from "../../assets/Headphone.svg";
 import Gamepad from "../../assets/Gamepad.svg";
 import SmartWatch from "../../assets/SmartWatch.svg";
 
-import Star from "../../assets/Star.svg";
-import StarUnfilled from "../../assets/Star-unfilled.svg";
-import QuickView from "../../assets/Quick View.svg";
-import WishList from "../../assets/wishlist.svg";
 import ProductPage from "./ProductPage";
 import { Link } from "react-router-dom";
 
@@ -77,7 +73,7 @@ const CategoriesContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   margin-top: 60px;
   margin-bottom: 60px;
   width: 100%;

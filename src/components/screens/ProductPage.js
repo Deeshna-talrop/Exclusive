@@ -5,7 +5,8 @@ import Star from "../../assets/Star.svg";
 import StarUnfilled from "../../assets/Star-unfilled.svg";
 import QuickView from "../../assets/Quick View.svg";
 import WishList from "../../assets/wishlist.svg";
-const CategoryContent = [
+import { useState } from "react";
+export const CategoryContent = [
   {
     id: 1,
     name: "Breed Dry Dog Food",
@@ -13,6 +14,12 @@ const CategoryContent = [
     price: "$100",
     rating: "4.9",
     category: "Dogs",
+    colors: [{ color: "#000000" }, { color: "#ffff00" }],
+    details: {
+      inStock: true,
+      description:
+        "PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal Pressure sensitive.",
+    },
   },
   {
     id: 2,
@@ -20,7 +27,8 @@ const CategoryContent = [
     image: require("../../assets/Camera.png"),
     price: "$100",
     rating: "4.9",
-    category: "Dogs",
+    category: "Camera",
+    colors: [{ color: "#ff0000" }, { color: "#ffffff" }],
   },
   {
     id: 3,
@@ -28,7 +36,7 @@ const CategoryContent = [
     image: require("../../assets/Laptop.png"),
     price: "$100",
     rating: "4.9",
-    category: "Dogs",
+    category: "Laptop, computer",
   },
   {
     id: 4,
@@ -36,7 +44,7 @@ const CategoryContent = [
     image: require("../../assets/Cosmetics.png"),
     price: "$100",
     rating: "4.9",
-    category: "Dogs",
+    category: "beauty",
   },
   {
     id: 5,
@@ -44,7 +52,7 @@ const CategoryContent = [
     image: require("../../assets/Car.png"),
     price: "$100",
     rating: "4.9",
-    category: "Dogs",
+    category: "Toys",
   },
   {
     id: 6,
@@ -52,7 +60,7 @@ const CategoryContent = [
     image: require("../../assets/Shoe.png"),
     price: "$100",
     rating: "4.9",
-    category: "Dogs",
+    category: "Shoe",
   },
   {
     id: 7,
@@ -60,7 +68,7 @@ const CategoryContent = [
     image: require("../../assets/Game.png"),
     price: "$100",
     rating: "4.9",
-    category: "Dogs",
+    category: "Game",
   },
   {
     id: 8,
@@ -68,41 +76,66 @@ const CategoryContent = [
     image: require("../../assets/Jacket.png"),
     price: "$100",
     rating: "4.9",
-    category: "Dogs",
+    category: "Cloth",
   },
 ];
 export default function ProductPage() {
+  const [styles, setStyles] = useState({
+    border: "none",
+  });
+
+  const handleClick = () => {
+    setStyles({
+      border: "1px solid #000",
+    });
+  };
   return (
     <>
       <ProductConatiner>
         <ProductList>
           {CategoryContent.map((category) => (
             <Product>
-              <ProductImage>
-                <img src={category.image} alt="Image" />
-                <IconList>
-                  <img src={WishList} alt="Wish List" />
-                  <img src={QuickView} alt="Quick View" />
-                </IconList>
-                <button>Add To Cart</button>
-              </ProductImage>
-              <ProductInfo>
-                <ProductName>{category.name}</ProductName>
-                <ProductDetails>
-                  <ProductPrice>{category.price}</ProductPrice>
-                  <ProductRating>
-                    <StarListing>
-                      <RatingStar src={Star} alt="Image" />
-                      <RatingStar src={Star} alt="Image" />
-                      <RatingStar src={Star} alt="Image" />
-                      <RatingStar src={Star} alt="Image" />
-                      <RatingStar src={Star} alt="Image" />
-                      <RatingStar src={StarUnfilled} alt="Image" />
-                    </StarListing>
-                    <p>({category.rating})</p>
-                  </ProductRating>
-                </ProductDetails>
-              </ProductInfo>
+              <Link
+                to={`/product/${category.id}`}
+                style={{ width: "100%", textDecoration: "none" }}
+              >
+                <ProductImage>
+                  <img src={category.image} alt="Image" />
+                  <IconList>
+                    <img src={WishList} alt="Wish List" />
+                    <img src={QuickView} alt="Quick View" />
+                  </IconList>
+                  <button>Add To Cart</button>
+                </ProductImage>
+                <ProductInfo>
+                  <ProductName>{category.name}</ProductName>
+                  <ProductDetails>
+                    <ProductPrice>{category.price}</ProductPrice>
+                    <ProductRating>
+                      <StarListing>
+                        <RatingStar src={Star} alt="Image" />
+                        <RatingStar src={Star} alt="Image" />
+                        <RatingStar src={Star} alt="Image" />
+                        <RatingStar src={Star} alt="Image" />
+                        <RatingStar src={Star} alt="Image" />
+                        <RatingStar src={StarUnfilled} alt="Image" />
+                      </StarListing>
+                      <p>({category.rating})</p>
+                    </ProductRating>
+                  </ProductDetails>
+                  <ColorDetails>
+                    {category.colors?.map((color, index) => (
+                      <ProductColor
+                        key={index}
+                        style={{
+                          backgroundColor: `${color.color}`,
+                        }}
+                        onClick={handleClick}
+                      ></ProductColor>
+                    ))}
+                  </ColorDetails>
+                </ProductInfo>
+              </Link>
             </Product>
           ))}
         </ProductList>
@@ -126,11 +159,8 @@ const ProductList = styled.ul`
   justify-content: space-between;
   align-items: center;
   padding: 0;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   width: 100%;
-  @media screen and (max-width: 620px) {
-    margin-bottom: 20px;
-  }
   @media screen and (max-width: 620px) {
     justify-content: space-evenly;
   }
@@ -142,11 +172,13 @@ const Product = styled.li`
   justify-content: center;
   align-items: flex-start;
   max-width: 20%;
-  max-height: 326px;
   margin: 0 20px 40px 0;
   cursor: pointer;
+  text-decoration: none;
+
   @media screen and (max-width: 1024px) {
     max-height: 260px;
+    max-width: 20%;
   }
   @media screen and (max-width: 960px) {
     max-height: 240px;
@@ -183,6 +215,14 @@ const ProductImage = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
+  @media screen and (max-width: 1160px) {
+    min-height: 240px;
+    min-width: 240px;
+  }
+  @media screen and (max-width: 1046px) {
+    min-height: 220px;
+    min-width: 220px;
+  }
   @media screen and (max-width: 1024px) {
     min-height: 200px;
     min-width: 200px;
@@ -263,6 +303,8 @@ const IconList = styled.div`
   position: absolute;
   top: 10px;
   right: 10px;
+  text-decoration: none;
+
   img {
     width: 18px;
     padding: 6px;
@@ -286,6 +328,8 @@ const ProductInfo = styled.div`
   margin-top: 20px;
   width: 100%;
   gap: 10px;
+  text-decoration: none;
+
   @media screen and (max-width: 960px) {
     gap: 8px;
     margin-top: 10px;
@@ -306,6 +350,7 @@ const ProductName = styled.h3`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
   &:hover {
     text-decoration: underline;
   }
@@ -328,6 +373,7 @@ const ProductDetails = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  text-decoration: none;
   width: 100%;
 `;
 const ProductPrice = styled.p`
@@ -336,6 +382,7 @@ const ProductPrice = styled.p`
   margin: 0;
   color: #db4444;
   margin-right: 20px;
+  text-decoration: none;
   @media screen and (max-width: 1024px) {
     font-size: 14px;
   }
@@ -419,7 +466,22 @@ const ProductRating = styled.div`
     font-size: 10px;
   }
 `;
-
+const ColorDetails = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+`;
+const ProductColor = styled.div`
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+`;
+const styledProduct = styled.div`
+  border: 2px solid black;
+`;
 const RatingStar = styled.img``;
 const ViewAllButton = styled.button`
   display: flex;

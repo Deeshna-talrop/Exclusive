@@ -287,7 +287,7 @@ const FooterListCenter = styled.div`
   justify-content: center;
   align-items: flex-start;
   gap: 64px;
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1096px) {
     flex-direction: column;
     gap: 12px;
     white-space: nowrap;
@@ -336,7 +336,7 @@ const FooterListLink = styled.a`
   &:hover {
     text-decoration: underline;
   }
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1096px) {
     display: none;
   }
   @media screen and (max-width: 620px) {

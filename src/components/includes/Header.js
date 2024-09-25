@@ -6,6 +6,7 @@ import logo from "../../assets/Logo.png";
 import WishList from "../../assets/wishlist.svg";
 import Cart from "../../assets/Cart1.svg";
 import Search from "../../assets/search.svg";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   const [selectedOption, setSelectedOption] = useState(null);
@@ -25,7 +26,18 @@ export default function Header() {
           <p>
             Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!
           </p>
-          <Link href="/">Shop Now</Link>
+          <Link
+            to="/products"
+            style={{
+              textDecoration: "underline",
+              color: "#fff",
+              fontWeight: "600",
+              marginLeft: "10px",
+              whiteSpace: "nowrap",
+            }}
+          >
+            Shop Now
+          </Link>
         </OfferText>
         <StyledDropdown
           options={options}
@@ -38,16 +50,25 @@ export default function Header() {
         <img src={logo} alt="logo" />
         <NavBarList>
           <li style={{ fontWeight: "600", textDecoration: "underline" }}>
-            <a href="/">Home</a>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <a href="/"> Contact</a>
+            <Link to="" style={{ whiteSpace: "nowrap" }}>
+              {" "}
+              Contact
+            </Link>
           </li>
           <li>
-            <a href="/"> About</a>
+            <Link to="" style={{ whiteSpace: "nowrap" }}>
+              {" "}
+              About
+            </Link>
           </li>
           <li>
-            <a href="/"> Sign Up</a>
+            <Link to="" style={{ whiteSpace: "nowrap" }}>
+              {" "}
+              Sign Up
+            </Link>
           </li>
         </NavBarList>
         <NavBarRight>
@@ -82,16 +103,6 @@ const Offer = styled.div`
   }
 `;
 const Div = styled.div``;
-const Link = styled.a`
-  color: #fff;
-  font-weight: 700;
-  text-decoration: underline;
-  margin-left: 6px;
-  @media screen and (max-width: 960px) {
-    font-size: 12px;
-    margin-left: 12px;
-  }
-`;
 
 const OfferText = styled.div`
   display: flex;
@@ -99,11 +110,21 @@ const OfferText = styled.div`
   justify-content: center;
   align-items: center;
   margin-left: 200px;
-  @media screen and (max-width: 580px) {
+  white-space: nowrap;
+  @media screen and (max-width: 960px) {
+    margin-left: 100px;
+    overflow: auto;
+    overflow-x: scroll;
+    justify-content: flex-start;
+  }
+  @media screen and (max-width: 540px) {
+    margin-left: 50px;
+  }
+
+  @media screen and (max-width: 0px) {
     margin-left: 12px;
     font-size: 12px;
     white-space: nowrap;
-    width: 540px;
     overflow: auto;
     overflow-x: scroll;
     justify-content: flex-start;
@@ -211,7 +232,7 @@ const NavBarList = styled.ul`
       margin: 0 16px;
     }
     @media screen and (max-width: 620px) {
-      margin: 0 12px;
+      margin: 0 10px;
     }
     @media screen and (max-width: 540px) {
       display: none;
