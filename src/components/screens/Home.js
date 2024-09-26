@@ -8,6 +8,7 @@ import HeroImage from "../../assets/hero.jpg";
 import Apple from "../../assets/apple.svg";
 import Arrow from "../../assets/arrow-right.svg";
 import About from "./About";
+import { Link } from "react-router-dom";
 export default function Home() {
   return (
     <>
@@ -19,10 +20,22 @@ export default function Home() {
               <p>Iphone 14 Series</p>
             </TextLogo>
             <Title>Up to 10% off Voucher</Title>
-            <Button>
+            <Link
+              to="/products"
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                border: "none",
+                color: "#fff",
+                background: "none",
+                fontSize: "16px",
+                fontWeight: "500",
+                textDecoration: " underline",
+              }}
+            >
               Shop Now
-              <img src={Arrow} alt="Image" />
-            </Button>
+              <Icon src={Arrow} alt="Image" />
+            </Link>
           </Left>
           <HeroImageContainer src={HeroImage} alt="Image" />
         </SpotlightConatiner>
@@ -173,33 +186,17 @@ const Title = styled.div`
   }
 `;
 
-const Button = styled.a`
-  display: flex;
-  flex-direction: row;
-  border: none;
-  color: #fff;
-  background: none;
-  font-size: 16px;
-  font-weight: 500;
-  text-decoration: underline;
-  img {
-    width: 20px;
-    height: 20px;
-    margin-left: 10px;
-  }
+const Icon = styled.img`
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
   &:hover {
     cursor: pointer;
     color: #7e7e7e;
   }
-  @media screen and (max-width: 820px) {
-    font-size: 14px;
-  }
   @media screen and (max-width: 540px) {
-    font-size: 12px;
-    img {
-      width: 16px;
-      height: 16px;
-    }
+    width: 16px;
+    height: 16px;
   }
 `;
 

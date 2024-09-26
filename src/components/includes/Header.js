@@ -47,7 +47,11 @@ export default function Header() {
         />
       </Offer>
       <NavBar>
-        <img src={logo} alt="logo" />
+        <LogoContainer>
+          <a href="/">
+            <img src={logo} alt="logo" />
+          </a>
+        </LogoContainer>
         <NavBarList>
           <li style={{ fontWeight: "600", textDecoration: "underline" }}>
             <Link to="/">Home</Link>
@@ -110,6 +114,7 @@ const OfferText = styled.div`
   justify-content: center;
   align-items: center;
   margin-left: 200px;
+  width: 100%;
   white-space: nowrap;
   @media screen and (max-width: 960px) {
     margin-left: 100px;
@@ -192,6 +197,9 @@ const NavBar = styled.div`
   @media screen and (max-width: 820px) {
     padding: 10px 40px 10px 40px;
   }
+`;
+const LogoContainer = styled.h1`
+  display: flex;
   img {
     width: 118px;
     height: 24px;
@@ -203,7 +211,6 @@ const NavBar = styled.div`
     }
   }
 `;
-
 const NavBarList = styled.ul`
   display: flex;
   flex-direction: row;
@@ -271,10 +278,10 @@ const NavBarRight = styled.div`
 const Input = styled.input`
   background-image: url(${Search});
   background-repeat: no-repeat;
-  background-position: 170px 12px;
+  background-position: 180px 12px;
   background-size: 20px;
-  width: 180px;
-  height: 24px;
+  width: 200px;
+  height: 22px;
   padding: 12px 7px 12px 12px;
   border: none;
   background-color: #f5f5f5;

@@ -6,8 +6,9 @@ import Headphone from "../../assets/Headphone.svg";
 import Gamepad from "../../assets/Gamepad.svg";
 import SmartWatch from "../../assets/SmartWatch.svg";
 
-import ProductPage from "./ProductPage";
+import ProductPage, { CategoryContent } from "./ProductPage";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const CategoriesListContent = [
   {
@@ -32,7 +33,7 @@ const CategoriesListContent = [
   },
   {
     id: 5,
-    name: "Gamepad",
+    name: "Game",
     image: Gamepad,
   },
   {
@@ -43,6 +44,25 @@ const CategoriesListContent = [
 ];
 
 export default function Categories() {
+  const [selectedCategory, setSelectedCategory] = useState(null);
+
+  const handleCategoryChange = (category) => {
+    setSelectedCategory(category);
+  };
+  const [filteredProducts, setFilteredProducts] = useState([]);
+
+  useEffect(() => {
+    if (selectedCategory) {
+      const filteredProducts = CategoryContent.filter(
+        (product) => product.category === selectedCategory
+      );
+      setFilteredProducts(filteredProducts);
+    } else {
+      setFilteredProducts(CategoryContent.slice(0, 8));
+    }
+    console.log(filteredProducts);
+  }, [selectedCategory]);
+
   return (
     <CategoriesContainer>
       <Divider>
@@ -52,15 +72,42 @@ export default function Categories() {
       <SectionTitle>Browse By Category</SectionTitle>
       <Category>
         <CategoriesListContainer>
+          <CategoriesList
+            onClick={() => handleCategoryChange(null)}
+            key="all"
+            style={{
+              backgroundColor:
+                selectedCategory === null ? "#f9f9f9" : "transparent",
+              border:
+                selectedCategory === null
+                  ? "1px solid #808080"
+                  : "1px solid #f0f0f0",
+            }}
+          >
+            <CategoryName>All</CategoryName>
+          </CategoriesList>
           {CategoriesListContent.map((category) => (
-            <CategoriesList key={category.id}>
+            <CategoriesList
+              key={category.id}
+              onClick={() => handleCategoryChange(category.name)}
+              style={{
+                backgroundColor:
+                  selectedCategory === category.name
+                    ? "#f9f9f9"
+                    : "transparent",
+                border:
+                  selectedCategory === category.name
+                    ? "1px solid #808080"
+                    : "1px solid #f0f0f0",
+              }}
+            >
               <Image src={category.image} alt="Image" />
-              <CategoriesName>{category.name}</CategoriesName>
+              <CategoryName>{category.name}</CategoryName>
             </CategoriesList>
           ))}
         </CategoriesListContainer>
       </Category>
-      <ProductPage />
+      <ProductPage filteredProducts={filteredProducts} />
 
       <Link to="/products" style={{ textDecoration: "none" }}>
         <ViewAllButton>View All Products</ViewAllButton>
@@ -86,8 +133,9 @@ const CategoriesContainer = styled.div`
 const Divider = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  width: 100%;
   color: #db4444;
   div {
     width: 20px;
@@ -129,7 +177,8 @@ const Divider = styled.div`
 const SectionTitle = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
+  width: 100%;
   margin: 10px 0px 20px 0px;
   font-size: 36px;
   font-weight: 600;
@@ -155,25 +204,19 @@ const Category = styled.ul`
   padding: 0;
   width: 100%;
   overflow: auto;
+  overflow-x: scroll;
+  scrollbar-width: none;
   @media screen and (max-width: 620px) {
     margin: 20px 0px 20px 0px;
-    padding: 0;
-    width: auto;
   }
 `;
 
 const CategoriesListContainer = styled.li`
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   width: 100%;
-  cursor: pointer;
-  @media screen and (max-width: 480px) {
-    overflow: auto;
-    overflow-x: scroll;
-    width: auto;
-  }
 `;
 const CategoriesList = styled.a`
   display: flex;
@@ -183,7 +226,7 @@ const CategoriesList = styled.a`
   border: 1px solid #808080;
   width: 100%;
   height: 120px;
-  padding: 24px 0px;
+  padding: 24px;
   border-radius: 4px;
   margin-right: 20px;
   &:last-child {
@@ -214,7 +257,7 @@ const CategoriesList = styled.a`
   }
   @media screen and (max-width: 480px) {
     height: 30px;
-    width: 100px;
+    width: 200px;
   }
 `;
 
@@ -233,7 +276,7 @@ const Image = styled.img`
     height: 26px;
   }
 `;
-const CategoriesName = styled.div`
+const CategoryName = styled.div`
   font-size: 16px;
   font-weight: 600;
   margin-top: 12px;

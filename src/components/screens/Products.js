@@ -1,10 +1,17 @@
 import { Link } from "react-router-dom";
 import Footer from "../includes/Footer";
 import Headers from "../includes/Header";
-import ProductPage from "./ProductPage";
+import ProductPage, { CategoryContent } from "./ProductPage";
 import styled from "styled-components";
+import { useEffect, useState } from "react";
 
 export default function Products() {
+  const [filteredProducts, setFilteredProducts] = useState([]);
+
+  useEffect(() => {
+    setFilteredProducts(CategoryContent);
+  }, []);
+  window.scrollTo(0, 0);
   return (
     <>
       <Headers />
@@ -28,8 +35,7 @@ export default function Products() {
             Products
           </p>
         </BreadCrumb>
-        <ProductPage />
-        <ProductPage />
+        <ProductPage filteredProducts={filteredProducts} />
       </ProductsContainer>
 
       <Footer />

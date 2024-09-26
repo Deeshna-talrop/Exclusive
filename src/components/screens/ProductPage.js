@@ -5,7 +5,7 @@ import Star from "../../assets/Star.svg";
 import StarUnfilled from "../../assets/Star-unfilled.svg";
 import QuickView from "../../assets/Quick View.svg";
 import WishList from "../../assets/wishlist.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 export const CategoryContent = [
   {
     id: 1,
@@ -14,7 +14,7 @@ export const CategoryContent = [
     price: "$100",
     rating: "4.9",
     category: "Dogs",
-    colors: [{ color: "#000000" }, { color: "#ffff00" }],
+    isNew: true,
     details: {
       inStock: true,
       description:
@@ -28,7 +28,12 @@ export const CategoryContent = [
     price: "$100",
     rating: "4.9",
     category: "Camera",
-    colors: [{ color: "#ff0000" }, { color: "#ffffff" }],
+    isNew: false,
+    details: {
+      inStock: true,
+      description:
+        "PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal Pressure sensitive.",
+    },
   },
   {
     id: 3,
@@ -36,7 +41,14 @@ export const CategoryContent = [
     image: require("../../assets/Laptop.png"),
     price: "$100",
     rating: "4.9",
-    category: "Laptop, computer",
+    category: "Computer",
+    colors: [{ color: "#000" }, { color: "#fff" }],
+    isNew: true,
+    details: {
+      inStock: false,
+      description:
+        "PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal Pressure sensitive.",
+    },
   },
   {
     id: 4,
@@ -44,7 +56,14 @@ export const CategoryContent = [
     image: require("../../assets/Cosmetics.png"),
     price: "$100",
     rating: "4.9",
-    category: "beauty",
+    category: "Beauty",
+    isNew: false,
+    discount: "-20%",
+    details: {
+      inStock: false,
+      description:
+        "PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal Pressure sensitive.",
+    },
   },
   {
     id: 5,
@@ -53,6 +72,13 @@ export const CategoryContent = [
     price: "$100",
     rating: "4.9",
     category: "Toys",
+    colors: [{ color: "#ff0000" }, { color: "#16d4b8" }],
+    isNew: false,
+    details: {
+      inStock: true,
+      description:
+        "PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal Pressure sensitive.",
+    },
   },
   {
     id: 6,
@@ -61,6 +87,13 @@ export const CategoryContent = [
     price: "$100",
     rating: "4.9",
     category: "Shoe",
+    colors: [{ color: "#ff0000" }, { color: "#000" }, { color: "#1d876c" }],
+    isNew: false,
+    details: {
+      inStock: false,
+      description:
+        "PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal Pressure sensitive.",
+    },
   },
   {
     id: 7,
@@ -69,6 +102,13 @@ export const CategoryContent = [
     price: "$100",
     rating: "4.9",
     category: "Game",
+    isNew: false,
+    discount: "-10%",
+    details: {
+      inStock: false,
+      description:
+        "PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal Pressure sensitive.",
+    },
   },
   {
     id: 8,
@@ -77,13 +117,119 @@ export const CategoryContent = [
     price: "$100",
     rating: "4.9",
     category: "Cloth",
+    colors: [
+      { color: "#ff0000" },
+      { color: "#000" },
+      { color: "#6bdf88" },
+      { color: "#f6f6f6" },
+      { color: "#8ac6cc" },
+      { color: "#8b6628" },
+      { color: "#6464ac" },
+    ],
+    isNew: true,
+    details: {
+      inStock: true,
+      description:
+        "PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal Pressure sensitive.",
+    },
+  },
+  {
+    id: 9,
+    name: "RGB liquid CPU Cooler",
+    image: require("../../assets/speaker.png"),
+    price: "$160",
+    rating: "4.9",
+    category: "Computer",
+    isNew: false,
+    details: {
+      inStock: true,
+      description:
+        "PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal Pressure sensitive.",
+    },
+  },
+  {
+    id: 10,
+    name: "IPS LCD Gaming Monitor",
+    image: require("../../assets/Moniter.png"),
+    price: "$370",
+    rating: "4.9",
+    category: "Computer",
+    isNew: true,
+    details: {
+      inStock: true,
+      description:
+        "PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal Pressure sensitive.",
+    },
+  },
+  {
+    id: 11,
+    name: "AK-900 Wired Keyboard",
+    image: require("../../assets/keyboard.png"),
+    price: "$960",
+    rating: "4.9",
+    category: "Computer",
+    colors: [{ color: "#ff0000" }, { color: "#16d4b8" }],
+    isNew: false,
+    discount: "-10%",
+    details: {
+      inStock: true,
+      description:
+        "PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal Pressure sensitive.",
+    },
+  },
+  {
+    id: 12,
+    name: "HAVIT HV-G92 Gamepad",
+    image: require("../../assets/gameconsole.png"),
+    price: "$120",
+    rating: "4.9",
+    category: "Game",
+    colors: [{ color: "#ff0000" }, { color: "#a52323" }, { color: "#91ee35" }],
+    isNew: true,
+    details: {
+      inStock: false,
+      description:
+        "PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal Pressure sensitive.",
+    },
+  },
+  {
+    id: 13,
+    name: "Havic HV G-92 Gamepad",
+    image: require("../../assets/gameconsole2.png"),
+    price: "$192",
+    rating: "4.9",
+    category: "Game",
+    colors: [{ color: "#ff0000" }, { color: "#000" }, { color: "#fff000" }],
+    isNew: false,
+    discount: "-10%",
+    details: {
+      inStock: true,
+      description:
+        "PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal Pressure sensitive.",
+    },
+  },
+  {
+    id: 14,
+    name: "Havic HV G-92 Gamepad v7",
+    image: require("../../assets/gameconsole3.png"),
+    price: "$192",
+    rating: "4.9",
+    category: "Game",
+    colors: [{ color: "#ff0000" }, { color: "#000" }],
+    isNew: false,
+    discount: "-10%",
+    details: {
+      inStock: true,
+      description:
+        "PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal Pressure sensitive.",
+    },
   },
 ];
-export default function ProductPage() {
+
+export default function ProductPage({ filteredProducts }) {
   const [styles, setStyles] = useState({
     border: "none",
   });
-
   const handleClick = () => {
     setStyles({
       border: "1px solid #000",
@@ -93,57 +239,110 @@ export default function ProductPage() {
     <>
       <ProductConatiner>
         <ProductList>
-          {CategoryContent.map((category) => (
-            <Product>
-              <Link
-                to={`/product/${category.id}`}
-                style={{ width: "100%", textDecoration: "none" }}
-              >
-                <ProductImage>
-                  <img src={category.image} alt="Image" />
-                  <IconList>
-                    <img src={WishList} alt="Wish List" />
-                    <img src={QuickView} alt="Quick View" />
-                  </IconList>
-                  <button>Add To Cart</button>
-                </ProductImage>
-                <ProductInfo>
-                  <ProductName>{category.name}</ProductName>
-                  <ProductDetails>
-                    <ProductPrice>{category.price}</ProductPrice>
-                    <ProductRating>
-                      <StarListing>
-                        <RatingStar src={Star} alt="Image" />
-                        <RatingStar src={Star} alt="Image" />
-                        <RatingStar src={Star} alt="Image" />
-                        <RatingStar src={Star} alt="Image" />
-                        <RatingStar src={Star} alt="Image" />
-                        <RatingStar src={StarUnfilled} alt="Image" />
-                      </StarListing>
-                      <p>({category.rating})</p>
-                    </ProductRating>
-                  </ProductDetails>
-                  <ColorDetails>
-                    {category.colors?.map((color, index) => (
-                      <ProductColor
-                        key={index}
+          {filteredProducts.length === 0 ? (
+            <NoResultsFound>No results found</NoResultsFound>
+          ) : (
+            filteredProducts.map((category) => (
+              <Product key={category.id}>
+                <Link
+                  to={`/product/${category.id}`}
+                  style={{ width: "100%", textDecoration: "none" }}
+                >
+                  <ProductImage>
+                    <img src={category.image} alt="Image" />
+                    <IconList>
+                      <img src={WishList} alt="Wish List" />
+                      <img src={QuickView} alt="Quick View" />
+                    </IconList>
+                    {category.isNew === true ? (
+                      <div
                         style={{
-                          backgroundColor: `${color.color}`,
+                          backgroundColor: "#00FF66",
+                          padding: "6px 8px",
+                          position: "absolute",
+                          top: "12px",
+                          left: "12px",
+                          borderRadius: "6px",
+                          color: "#fff",
                         }}
-                        onClick={handleClick}
-                      ></ProductColor>
-                    ))}
-                  </ColorDetails>
-                </ProductInfo>
-              </Link>
-            </Product>
-          ))}
+                      >
+                        New
+                      </div>
+                    ) : (
+                      <div></div>
+                    )}
+                    {category.discount ? (
+                      <div
+                        style={{
+                          backgroundColor: "#DB4444",
+                          padding: "6px 8px",
+                          position: "absolute",
+                          top: "12px",
+                          left: "12px",
+                          borderRadius: "6px",
+                          color: "#fff",
+                        }}
+                      >
+                        {category.discount}
+                      </div>
+                    ) : (
+                      <div></div>
+                    )}
+                    <button>Add To Cart</button>
+                  </ProductImage>
+                  <ProductInfo>
+                    <ProductName>{category.name}</ProductName>
+                    <ProductDetails>
+                      <ProductPrice>{category.price}</ProductPrice>
+                      <ProductRating>
+                        <StarListing>
+                          <RatingStar src={Star} alt="Image" />
+                          <RatingStar src={Star} alt="Image" />
+                          <RatingStar src={Star} alt="Image" />
+                          <RatingStar src={Star} alt="Image" />
+                          <RatingStar src={Star} alt="Image" />
+                          <RatingStar src={StarUnfilled} alt="Image" />
+                        </StarListing>
+                        <p>({category.rating})</p>
+                      </ProductRating>
+                    </ProductDetails>
+                    <ColorDetails>
+                      {category.colors?.map((color, index) => (
+                        <ProductColor
+                          key={index}
+                          style={{
+                            backgroundColor: `${color.color}`,
+                          }}
+                          onClick={handleClick}
+                        ></ProductColor>
+                      ))}
+                    </ColorDetails>
+                  </ProductInfo>
+                </Link>
+              </Product>
+            ))
+          )}
         </ProductList>
       </ProductConatiner>
     </>
   );
 }
-
+const NoResultsFound = styled.h3`
+  text-align: center;
+  width: 100%;
+  margin: 20px 0;
+  font-size: 24px;
+  font-weight: 500;
+  @media screen and (max-width: 620px) {
+    font-size: 18px;
+  }
+  @media screen and (max-width: 480px) {
+    font-size: 16px;
+  }
+  @media screen and (max-width: 380px) {
+    font-size: 14px;
+  }
+`;
 const ProductConatiner = styled.div`
   display: flex;
   flex-direction: column;
@@ -157,7 +356,7 @@ const ProductList = styled.ul`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   padding: 0;
   margin-bottom: 20px;
   width: 100%;
@@ -169,7 +368,7 @@ const ProductList = styled.ul`
 const Product = styled.li`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  ustify-content: flex-start;
   align-items: flex-start;
   max-width: 20%;
   margin: 0 20px 40px 0;
@@ -193,14 +392,15 @@ const Product = styled.li`
     max-height: 200px;
     margin: 0 12px 20px 0;
   }
-  @media screen and (max-width: 540px) {
-    max-width: 28%;
-  }
-  @media screen and (max-width: 425px) {
+
+  @media screen and (max-width: 620px) {
     max-width: 30%;
   }
-  @media screen and (max-width: 375px) {
-    max-width: 42%;
+  @media screen and (max-width: 540px) {
+    max-width: 44%;
+  }
+  @media screen and (max-width: 425px) {
+    max-width: 44%;
   }
 `;
 
@@ -238,15 +438,6 @@ const ProductImage = styled.div`
   @media screen and (max-width: 720px) {
     min-height: 140px;
     min-width: 130px;
-  }
-
-  @media screen and (max-width: 580px) {
-    min-height: 120px;
-    min-width: 100%;
-  }
-  @media screen and (max-width: 540px) {
-    min-height: 120px;
-    min-width: 100%;
   }
 
   img {

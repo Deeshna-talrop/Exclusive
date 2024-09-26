@@ -121,10 +121,12 @@ export default function Footer() {
             </FooterListLink>
           </FooterList>
           {FooterListContent.map((footer) => (
-            <FooterList>
+            <FooterList key={footer.id}>
               <FooterListTitle>{footer.title}</FooterListTitle>
               {footer.content.map((content) => (
-                <FooterListLink href="/">{content.text}</FooterListLink>
+                <FooterListLink href="/" key={content.id}>
+                  {content.text}
+                </FooterListLink>
               ))}
             </FooterList>
           ))}

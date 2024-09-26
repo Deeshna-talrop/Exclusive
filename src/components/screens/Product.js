@@ -10,16 +10,16 @@ import Star from "../../assets/Star.svg";
 import StarUnfilled from "../../assets/Star-unfilled.svg";
 import Return from "../../assets/Icon-return.svg";
 import Delivery from "../../assets/icon-delivery.svg";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 export default function Product() {
   const { id } = useParams();
   const product = CategoryContent.find((p) => p.id === Number(id));
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
-  const slicedData = useMemo(
-    () => CategoryContent.slice(1, 3),
-    [CategoryContent]
-  );
+  useEffect(() => {
+    setFilteredProducts(CategoryContent.slice(0, 4));
+  }, []);
 
   const [styles, setStyles] = useState({
     border: "none",
@@ -33,6 +33,7 @@ export default function Product() {
       return <div>Product not found</div>;
     }
   };
+  window.scrollTo(0, 0);
   return (
     <>
       <Headers />
@@ -86,14 +87,28 @@ export default function Product() {
                 <RatingStar src={Star} alt="Image" />
                 <RatingStar src={StarUnfilled} alt="Image" />
               </StarListing>
-              <p style={{ margin: "0 10px 0 6px" }}>
+              <p style={{ margin: "0 10px 0 6px", whiteSpace: "nowrap" }}>
                 ({product.rating} reviews)
               </p>{" "}
               {"|"}
               {product.details && product.details.inStock == true ? (
-                <p style={{ color: "#3fa60b", marginLeft: "10px" }}>in stock</p>
+                <p
+                  style={{
+                    color: "#3fa60b",
+                    marginLeft: "10px",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  in stock
+                </p>
               ) : (
-                <p style={{ color: "#ff0000", marginLeft: "10px" }}>
+                <p
+                  style={{
+                    color: "#ff0000",
+                    marginLeft: "10px",
+                    whiteSpace: "nowrap",
+                  }}
+                >
                   Out of stock
                 </p>
               )}
@@ -134,7 +149,8 @@ export default function Product() {
                       flexDirection: "row",
                     }}
                   >
-                    <p>Free 30 Days Delivery Returns.</p> <a>Details</a>
+                    <p>Free 30 Days Delivery Returns.</p>{" "}
+                    <a href="/">Details</a>
                   </div>
                 </div>
               </Feature>
@@ -159,15 +175,15 @@ export default function Product() {
           <div></div>
           <p>Related Item</p>
         </ProductDivider>
-        <ProductPage data={slicedData} />
+        <ProductPage filteredProducts={filteredProducts} />
       </ExtraProduct>
       <Footer />
     </>
   );
 }
-
+const ExtraProductList = styled.div``;
 const ProductConatiner = styled.div`
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
 `;
 const BreadCrumb = styled.div`
@@ -178,23 +194,13 @@ const BreadCrumb = styled.div`
   width: 80%;
   height: 100%;
   margin: 40px 0;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   padding: 0;
   @media screen and (max-width: 1024px) {
-    font-size: 12px;
+    font-size: 14px;
     margin: 20px 0;
-  }
-  @media screen and (max-width: 960px) {
-    font-size: 12px;
-  }
-  @media screen and (max-width: 820px) {
-
-  }
-  @media screen and (max-width: 720px) {
-      margin: 10px 0;
-
-  }
+    width: 100%;
   }
 `;
 const Products = styled.li`
@@ -205,34 +211,13 @@ const Products = styled.li`
   width: 100%;
   margin: 40px 0;
   gap: 40px;
-  cursor: pointer;
   text-decoration: none;
-
   @media screen and (max-width: 1024px) {
-    max-height: 260px;
-    max-width: 20%;
+    gap: 36px;
   }
-  @media screen and (max-width: 960px) {
-    max-height: 240px;
-    max-width: 22%;
-    margin: 0 18px 36px 0;
-  }
-  @media screen and (max-width: 820px) {
-    max-height: 220px;
-    margin: 0 16px 32px 0;
-  }
-  @media screen and (max-width: 720px) {
-    max-height: 200px;
-    margin: 0 12px 20px 0;
-  }
-  @media screen and (max-width: 540px) {
-    max-width: 28%;
-  }
-  @media screen and (max-width: 425px) {
-    max-width: 30%;
-  }
-  @media screen and (max-width: 375px) {
-    max-width: 42%;
+  @media screen and (max-width: 620px) {
+    gap: 20px;
+    flex-direction: column;
   }
 `;
 
@@ -242,88 +227,46 @@ const ProductImage = styled.div`
 
   display: flex;
   min-height: 550px;
-  min-width: 600px;
+  min-width: 50%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
   @media screen and (max-width: 1160px) {
-    min-height: 240px;
-    min-width: 240px;
+    min-height: 550px;
   }
   @media screen and (max-width: 1046px) {
-    min-height: 220px;
-    min-width: 220px;
+    min-height: 550px;
   }
   @media screen and (max-width: 1024px) {
-    min-height: 200px;
-    min-width: 200px;
+    min-height: 500px;
   }
   @media screen and (max-width: 960px) {
-    min-height: 180px;
-    min-width: 180px;
+    min-height: 450px;
   }
   @media screen and (max-width: 820px) {
-    min-height: 160px;
-    min-width: 160px;
+    min-height: 400px;
   }
   @media screen and (max-width: 720px) {
-    min-height: 140px;
-    min-width: 130px;
+    min-height: 350px;
   }
-
-  @media screen and (max-width: 580px) {
-    min-height: 120px;
+  @media screen and (max-width: 620px) {
     min-width: 100%;
   }
-  @media screen and (max-width: 540px) {
-    min-height: 120px;
+  @media screen and (max-width: 425px) {
     min-width: 100%;
+    min-height: 250px;
   }
 
   img {
-    width: 40%;
-    height: 40%;
+    width: 50%;
+    height: 50%;
     border-radius: 4px;
     object-position: center;
     object-fit: contain;
-    @media screen and (max-width: 1024px) {
-      width: 55%;
-      height: 55%;
-    }
-    @media screen and (max-width: 960px) {
-      width: 55%;
-      height: 55%;
-    }
-    @media screen and (max-width: 540px) {
+    @media screen and (max-width: 620px) {
       width: 50%;
-      height: 50%;
     }
-  }
-  &:hover {
-    button {
-      visibility: visible;
-      opacity: 1;
-    }
-  }
-  button {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 20%;
-    color: #fff;
-    text-decoration: none;
-    background-color: #000;
-    border: none;
-    border-radius: 0 0 6px 6px;
-    visibility: hidden;
-    opacity: 0;
-    cursor: pointer;
-    transition: visibility 0.3s linear, opacity 0.3s linear;
   }
 `;
 
@@ -332,18 +275,15 @@ const ProductInfo = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  margin-left: 20px;
-  width: 46%;
+  width: 50%;
   gap: 16px;
   text-decoration: none;
-
-  @media screen and (max-width: 960px) {
-    gap: 8px;
+  @media screen and (max-width: 1024px) {
+    gap: 12px;
     margin-top: 10px;
   }
-  @media screen and (max-width: 820px) {
-    gap: 6px;
-    margin-top: 8px;
+  @media screen and (max-width: 620px) {
+    width: 100%;
   }
 `;
 
@@ -360,24 +300,13 @@ const ProductName = styled.h3`
   overflow: hidden;
   white-space: nowrap;
   @media screen and (max-width: 1024px) {
-    font-size: 14px;
+    font-size: 26px;
   }
   @media screen and (max-width: 960px) {
-    font-size: 12px;
-  }
-  @media screen and (max-width: 820px) {
-    font-size: 12px;
+    font-size: 24px;
   }
 `;
 
-const ProductDetails = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  text-decoration: none;
-  width: 100%;
-`;
 const ProductPrice = styled.p`
   font-size: 24px;
   font-weight: 600;
@@ -386,16 +315,7 @@ const ProductPrice = styled.p`
   margin-right: 20px;
   text-decoration: none;
   @media screen and (max-width: 1024px) {
-    font-size: 14px;
-  }
-  @media screen and (max-width: 960px) {
-    font-size: 12px;
-  }
-  @media screen and (max-width: 820px) {
-    font-size: 12px;
-  }
-  @media screen and (max-width: 720px) {
-    margin-right: 10px;
+    font-size: 20px;
   }
 `;
 const Description = styled.p`
@@ -403,11 +323,18 @@ const Description = styled.p`
   color: #666;
   line-height: 24px;
   font-size: 16px;
+  @media screen and(max-width:1024px) {
+    font-size: 14px;
+  }
+  @media screen and (max-width: 820px) {
+    font-size: 12px;
+    line-height: 18px;
+  }
 `;
 const StarListing = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   color: #666;
 
@@ -419,22 +346,9 @@ const StarListing = styled.div`
       width: 14px;
       height: 14px;
     }
-    @media screen and (max-width: 960px) {
-      width: 12px;
-      height: 12px;
-    }
     @media screen and (max-width: 820px) {
-      width: 10px;
-      height: 10px;
-    }
-    @media screen and (max-width: 720px) {
-      display: none;
       width: 12px;
       height: 12px;
-      &:first-child {
-        display: block;
-        margin-right: 4px;
-      }
     }
   }
   &:last-child {
@@ -454,8 +368,9 @@ const ProductRating = styled.div`
   color: #666;
   p {
     margin: 0;
+    font-size: 14px;
     @media screen and (max-width: 720px) {
-      font-size: 10px;
+      font-size: 12px;
     }
   }
 
@@ -464,13 +379,6 @@ const ProductRating = styled.div`
   }
   @media screen and (max-width: 960px) {
     font-size: 12px;
-  }
-  @media screen and (max-width: 820px) {
-    font-size: 10px;
-  }
-  @media screen and (max-width: 720px) {
-    margin-left: 6px;
-    font-size: 10px;
   }
 `;
 const Divider = styled.div`
@@ -485,12 +393,20 @@ const ColorDetails = styled.div`
   gap: 10px;
   margin-top: 6px;
   font-size: 18px;
+  @media (min-width: 820px) {
+    font-size: 16px;
+    gap: 8px;
+  }
 `;
 const ProductColor = styled.div`
   width: 18px;
   height: 18px;
   border-radius: 50%;
   border: 1px solid #fff;
+  @media screen and (max-width: 820px) {
+    width: 16px;
+    height: 16px;
+  }
 `;
 const Features = styled.div`
   display: flex;
@@ -498,18 +414,43 @@ const Features = styled.div`
   border-radius: 4px;
   border: 1px solid #656565;
   margin: 12px 0;
+  @media screen and (max-width: 820px) {
+    margin: 0;
+  }
 `;
 const Feature = styled.div`
   padding: 18px;
   margin-bottom: 6px;
   display: flex;
   flex-direction: row;
+  @media screen and (max-width: 1024px) {
+    padding: 12px;
+  }
+  @media screen and (max-width: 820px) {
+    padding: 10px;
+  }
   img {
     margin-right: 12px;
+    @media screen and (max-width: 1024px) {
+      margin-right: 8px;
+      width: 36px;
+      height: 36px;
+    }
+    @media screen and (max-width: 820px) {
+      width: 24px;
+      height: 24px;
+    }
   }
   h4 {
     margin: 0;
     margin-bottom: 6px;
+    @media screen and (max-width: 1024px) {
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+    @media screen and (max-width: 820px) {
+      font-size: 14px;
+    }
   }
   div p {
     margin: 0;
@@ -530,14 +471,20 @@ const Button = styled.div`
   display: flex;
   flex-direction: row;
   gap: 12px;
+  width: 100%;
   button {
     background-color: #000;
     color: #fff;
     border: none;
     font-size: 16px;
-    width: 200px;
+    width: 50%;
     height: 40px;
     border-radius: 6px;
+    cursor: pointer;
+    @media screen and (max-width: 820px) {
+      font-size: 14px;
+      height: 36px;
+    }
   }
 
   &:-child {
@@ -547,39 +494,9 @@ const Button = styled.div`
   }
 `;
 
-const styledProduct = styled.div`
-  border: 2px solid black;
-`;
 const RatingStar = styled.img``;
-const ViewAllButton = styled.button`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  background-color: #db4444;
-  color: #fff;
-  font-size: 16px;
-  font-weight: 500;
-  border: none;
-  width: 234px;
-  height: 46px;
-  padding: 16px 48px 16px 48px;
-  gap: 10px;
-  border-radius: 4px;
-  opacity: 0px;
-  cursor: pointer;
-  &:hover {
-    background-color: #db2222;
-  }
-  @media screen and (max-width: 960px) {
-    width: 180px;
-    height: 36px;
-    font-size: 14px;
-    white-space: nowrap;
-  }
-`;
 const ExtraProduct = styled.div`
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
 `;
 const ProductDivider = styled.div`
@@ -587,6 +504,7 @@ const ProductDivider = styled.div`
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  margin-bottom: 20px;
   color: #db4444;
   div {
     width: 20px;
