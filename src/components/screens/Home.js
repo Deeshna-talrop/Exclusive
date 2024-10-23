@@ -144,7 +144,7 @@ const Image = styled.img`
   }
 `;
 
-const Title = styled.div`
+const Title = styled.h1`
   color: #fff;
   width: 400px;
   font-size: 48px;
