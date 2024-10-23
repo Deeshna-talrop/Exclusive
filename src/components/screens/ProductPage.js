@@ -359,6 +359,7 @@ const ProductList = styled.ul`
   align-items: flex-start;
   padding: 0;
   margin-bottom: 20px;
+  margin-top: 0;
   width: 100%;
 `;
 

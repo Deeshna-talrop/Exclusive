@@ -67,7 +67,7 @@ export default function Categories() {
     <CategoriesContainer>
       <Divider>
         <div></div>
-        <p>Categories</p>
+        <p style={{ margin: "0px", marginLeft: "12px" }}>Categories</p>
       </Divider>
       <SectionTitle>Browse By Category</SectionTitle>
       <Category>
@@ -121,7 +121,6 @@ const CategoriesContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 60px;
   margin-bottom: 60px;
   width: 100%;
   @media screen and (max-width: 1024px) {
@@ -139,7 +138,7 @@ const Divider = styled.div`
   color: #db4444;
   div {
     width: 20px;
-    height: 32px;
+    height: 40px;
     background-color: #db4444;
     border-radius: 5px;
   }
@@ -179,7 +178,7 @@ const SectionTitle = styled.div`
   flex-direction: row;
   justify-content: flex-start;
   width: 100%;
-  margin: 10px 0px 20px 0px;
+  margin: 27px 0px 27px 0px;
   font-size: 36px;
   font-weight: 600;
   @media screen and (max-width: 1024px) {
@@ -200,14 +199,15 @@ const Category = styled.ul`
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
-  margin: 20px 0px 40px 0;
+  margin: 0px 0px 53px 0;
+
   padding: 0;
   width: 100%;
   overflow: auto;
   overflow-x: scroll;
   scrollbar-width: none;
   @media screen and (max-width: 620px) {
-    margin: 20px 0px 20px 0px;
+    margin: 0px 0px 20px 0px;
   }
 `;
 

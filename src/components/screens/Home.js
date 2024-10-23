@@ -68,7 +68,7 @@ const SpotlightConatiner = styled.div`
   width: 100%;
   height: 400px;
   border-radius: 10px;
-  margin: 60px 0px;
+  margin: 40px 0px 53px 0;
   overflow: hidden;
   @media screen and (max-width: 1024px) {
     height: 300px;
