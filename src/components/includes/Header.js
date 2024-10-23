@@ -48,9 +48,7 @@ export default function Header() {
       </Offer>
       <NavBar>
         <LogoContainer>
-          <a href="/">
-            <img src={logo} alt="logo" />
-          </a>
+          <a href="/">Exclusive</a>
         </LogoContainer>
         <NavBarList>
           <li style={{ fontWeight: "600", textDecoration: "underline" }}>
@@ -188,9 +186,9 @@ const NavBar = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  max-width: 1170px;
+  max-width: 80%;
   margin: 0 auto;
-  padding: 10px 20px 20px 20px;
+  padding: 10px 0px 0px 0px;
   @media screen and (max-width: 960px) {
     padding: 10px 40px 20px 40px;
   }
@@ -200,14 +198,19 @@ const NavBar = styled.div`
 `;
 const LogoContainer = styled.h1`
   display: flex;
-  img {
-    width: 118px;
-    height: 24px;
-    gap: 0px;
-    opacity: 0px;
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 800;
+    color: #000;
+    text-decoration: none;
     @media screen and (max-width: 960px) {
-      width: 100px;
-      height: 20px;
+      font-size: 20px;
+    }
+    @media screen and (max-width: 540px) {
+      font-size: 18px;
     }
   }
 `;
@@ -287,6 +290,7 @@ const Input = styled.input`
   background-color: #f5f5f5;
   border-radius: 4px;
   margin-right: 10px;
+  outline: none;
   @media screen and (max-width: 960px) {
     width: 160px;
     font-size: 12px;

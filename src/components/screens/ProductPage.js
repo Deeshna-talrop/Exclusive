@@ -360,37 +360,37 @@ const ProductList = styled.ul`
   padding: 0;
   margin-bottom: 20px;
   width: 100%;
-  @media screen and (max-width: 620px) {
-    justify-content: space-evenly;
-  }
 `;
 
 const Product = styled.li`
   display: flex;
   flex-direction: column;
-  ustify-content: flex-start;
+  justify-content: flex-start;
   align-items: flex-start;
-  max-width: 20%;
-  margin: 0 20px 40px 0;
+  max-width: 23%;
+  margin: 0 0 40px 0;
   cursor: pointer;
   text-decoration: none;
 
   @media screen and (max-width: 1024px) {
-    max-height: 260px;
-    max-width: 20%;
+    max-width: 23%;
+    margin: 0 0 36px 0;
   }
   @media screen and (max-width: 960px) {
-    max-height: 240px;
     max-width: 22%;
-    margin: 0 18px 36px 0;
+    margin: 0 0 36px 0;
+  }
+  @media screen and (max-width: 860px) {
+    margin: 0 0 32px 0;
+    min-width: 30%;
   }
   @media screen and (max-width: 820px) {
-    max-height: 220px;
-    margin: 0 16px 32px 0;
+    margin: 0 0px 32px 0;
   }
   @media screen and (max-width: 720px) {
     max-height: 200px;
-    margin: 0 12px 20px 0;
+    margin: 0 0px 20px 0;
+    min-width: 31%;
   }
 
   @media screen and (max-width: 620px) {
@@ -451,7 +451,7 @@ const ProductImage = styled.div`
       height: 55%;
     }
     @media screen and (max-width: 960px) {
-      width: 55%;
+      width: 45%;
       height: 55%;
     }
     @media screen and (max-width: 540px) {
