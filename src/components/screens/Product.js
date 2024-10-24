@@ -173,7 +173,7 @@ export default function Product() {
       <ExtraProduct>
         <ProductDivider>
           <div></div>
-          <p>Related Item</p>
+          <p style={{ fontWeight: "800" }}>Related Item</p>
         </ProductDivider>
         <ProductPage filteredProducts={filteredProducts} />
       </ExtraProduct>
