@@ -311,7 +311,7 @@ const ProductPrice = styled.p`
   font-size: 24px;
   font-weight: 600;
   margin: 0;
-  color: #db4444;
+  color: #000000;
   margin-right: 20px;
   text-decoration: none;
   @media screen and (max-width: 1024px) {
@@ -468,7 +468,7 @@ const Feature = styled.div`
 `;
 
 const Button = styled.div`
-  display: flex;
+  display: none;
   flex-direction: row;
   gap: 12px;
   width: 100%;
