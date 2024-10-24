@@ -111,22 +111,23 @@ const OfferText = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-left: 200px;
   width: 100%;
   white-space: nowrap;
   @media screen and (max-width: 960px) {
-    margin-left: 100px;
+    margin-left: 0px;
     overflow: auto;
-    overflow-x: scroll;
-    justify-content: flex-start;
   }
-  @media screen and (max-width: 540px) {
-    margin-left: 50px;
+  @media screen and (max-width: 660px) {
+    margin-left: 20px;
+    justify-content: flex-start;
+    overflow: scroll;
+    overflow-x: hidden;
   }
 
   @media screen and (max-width: 0px) {
     margin-left: 12px;
     font-size: 12px;
+    margin-left: 12px;
     white-space: nowrap;
     overflow: auto;
     overflow-x: scroll;
@@ -138,14 +139,14 @@ const OfferText = styled.div`
 `;
 
 const StyledDropdown = styled(Dropdown)`
-  width: 200px;
-  height: 30px;
   border-radius: 5px;
   font-size: 16px;
   display: flex;
+  margin-right: 20px;
   z-index: 1;
+  position: absolute;
+  right: 0;
   @media screen and (max-width: 960px) {
-    width: 150px;
     font-size: 12px;
   }
   @media screen and (max-width: 540px) {
@@ -175,6 +176,7 @@ const StyledDropdown = styled(Dropdown)`
   .Dropdown-option {
     padding: 10px;
     font-size: 16px;
+    margin-right: 10px;
     @media screen and (max-width: 960px) {
       font-size: 12px;
     }

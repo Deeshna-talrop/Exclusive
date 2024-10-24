@@ -67,7 +67,9 @@ export default function Categories() {
     <CategoriesContainer>
       <Divider>
         <div></div>
-        <p style={{ margin: "0px", marginLeft: "12px" }}>Categories</p>
+        <p style={{ margin: "0px", marginLeft: "12px", fontWeight: "800" }}>
+          Categories
+        </p>
       </Divider>
       <SectionTitle>Browse By Category</SectionTitle>
       <Category>

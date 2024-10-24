@@ -368,11 +368,14 @@ const Product = styled.li`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  max-width: 23%;
+  max-width: 40%;
   margin: 0 0 40px 0;
   cursor: pointer;
   text-decoration: none;
-
+  @media screen and (max-width: 1440px) {
+    max-width: 28%;
+    margin: 0 0 36px 0;
+  }
   @media screen and (max-width: 1024px) {
     max-width: 23%;
     margin: 0 0 36px 0;
@@ -416,6 +419,10 @@ const ProductImage = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
+  @media screen and (max-width: 1440px) {
+    min-height: 260px;
+    min-width: 260px;
+  }
   @media screen and (max-width: 1160px) {
     min-height: 240px;
     min-width: 240px;
