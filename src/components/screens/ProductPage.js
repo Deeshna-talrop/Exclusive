@@ -258,7 +258,7 @@ export default function ProductPage({ filteredProducts }) {
                       <div
                         style={{
                           backgroundColor: "#00FF66",
-                          padding: "6px 8px",
+                          padding: "6px 12px",
                           position: "absolute",
                           top: "12px",
                           left: "12px",
@@ -275,7 +275,7 @@ export default function ProductPage({ filteredProducts }) {
                       <div
                         style={{
                           backgroundColor: "#DB4444",
-                          padding: "6px 8px",
+                          padding: "6px 12px",
                           position: "absolute",
                           top: "12px",
                           left: "12px",

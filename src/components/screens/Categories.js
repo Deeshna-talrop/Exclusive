@@ -111,7 +111,17 @@ export default function Categories() {
       </Category>
       <ProductPage filteredProducts={filteredProducts} />
 
-      <Link to="/products" style={{ textDecoration: "none" }}>
+      <Link
+        to="/products"
+        style={{
+          textDecoration: "none",
+          width: "100%",
+          borderTop: "0.5px solid rgba(0, 0, 0, 0.3)",
+          margin: "0 auto",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
         <ViewAllButton>View All Products</ViewAllButton>
       </Link>
     </CategoriesContainer>
@@ -616,6 +626,7 @@ const ViewAllButton = styled.button`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  justify-items: center;
   background-color: #db4444;
   color: #fff;
   font-size: 16px;
@@ -628,6 +639,7 @@ const ViewAllButton = styled.button`
   border-radius: 4px;
   opacity: 0px;
   cursor: pointer;
+  margin-top: 22px;
   &:hover {
     background-color: #db2222;
   }
