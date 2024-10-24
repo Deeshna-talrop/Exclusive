@@ -515,12 +515,7 @@ const ProductImage = styled.div`
       height: 40%;
     }
   }
-  &:hover {
-    button {
-      visibility: visible;
-      opacity: 1;
-    }
-  }
+
   button {
     display: flex;
     flex-direction: column;
@@ -539,6 +534,29 @@ const ProductImage = styled.div`
     opacity: 0;
     cursor: pointer;
     transition: visibility 0.3s linear, opacity 0.3s linear;
+  }
+  &:hover {
+    button {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+  @media (max-width: 375px) {
+    button {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 24%;
+      visibility: visible;
+      opacity: 1;
+      border-radius: 0 0 6px 6px;
+      z-index: 10;
+    }
+
+    &:hover button {
+      visibility: visible;
+      opacity: 1;
+    }
   }
 `;
 const IconList = styled.div`
