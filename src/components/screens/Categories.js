@@ -219,6 +219,7 @@ const CategoriesListContainer = styled.li`
   justify-content: flex-start;
   align-items: center;
   width: 100%;
+  gap: 20px;
 `;
 const CategoriesList = styled.a`
   display: flex;
@@ -230,7 +231,7 @@ const CategoriesList = styled.a`
   height: 120px;
   padding: 24px;
   border-radius: 4px;
-  margin-right: 20px;
+  // margin-right: 20px;
   &:last-child {
     margin-right: 0;
   }
