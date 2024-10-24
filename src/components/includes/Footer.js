@@ -110,7 +110,13 @@ export default function Footer() {
         <FooterListCenter>
           <FooterList>
             <FooterListTitle>Support</FooterListTitle>
-            <FooterListLink style={{ width: "175px", whiteSpace: "normal" }}>
+            <FooterListLink
+              style={{
+                width: "175px",
+                whiteSpace: "normal",
+                cursor: "pointer",
+              }}
+            >
               111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.
             </FooterListLink>
             <FooterListLink href="mailto:exclusive@example.com">
