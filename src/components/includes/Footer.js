@@ -103,6 +103,7 @@ export default function Footer() {
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              maxlength="254"
             />
             <button type="submit"></button>
           </Input>
