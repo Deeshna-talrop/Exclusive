@@ -211,6 +211,38 @@ export const CategoryContent = [
   {
     id: 14,
     name: "Havic HV G-92 Gamepad v7",
+    image: require("../../assets/keyboard.png"),
+    price: "$192",
+    rating: "4.9",
+    category: "Game",
+    colors: [{ color: "#ff0000" }, { color: "#000" }],
+    isNew: false,
+    discount: "-10%",
+    details: {
+      inStock: true,
+      description:
+        "PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal Pressure sensitive.",
+    },
+  },
+  {
+    id: 15,
+    name: "Havic HV G-92 Gamepad v7",
+    image: require("../../assets/gameconsole.png"),
+    price: "$192",
+    rating: "4.9",
+    category: "Game",
+    colors: [{ color: "#ff0000" }, { color: "#000" }],
+    isNew: false,
+    discount: "-10%",
+    details: {
+      inStock: true,
+      description:
+        "PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal Pressure sensitive.",
+    },
+  },
+  {
+    id: 16,
+    name: "Havic HV G-92 Gamepad v7",
     image: require("../../assets/gameconsole3.png"),
     price: "$192",
     rating: "4.9",
