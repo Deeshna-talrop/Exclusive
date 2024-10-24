@@ -58,6 +58,9 @@ const HomeContainer = styled.div`
   @media screen and (max-width: 1024px) {
     max-width: 85%;
   }
+  @media screen and (max-width: 375px) {
+    max-width: 90%;
+  }
 `;
 const SpotlightConatiner = styled.div`
   display: flex;

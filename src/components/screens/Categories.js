@@ -188,11 +188,11 @@ const SectionTitle = styled.h3`
   }
   @media screen and (max-width: 960px) {
     font-size: 28px;
-    margin: 12px 0px 10px 0px;
+    margin: 12px 0px 12px 0px;
   }
   @media screen and (max-width: 540px) {
     font-size: 24px;
-    margin: 10px 0px 0px 0px;
+    margin: 10px 0px 10px 0px;
   }
 `;
 
@@ -220,6 +220,9 @@ const CategoriesListContainer = styled.li`
   align-items: center;
   width: 100%;
   gap: 20px;
+  @media (max-width: 320px) {
+    gap: 10px;
+  }
 `;
 const CategoriesList = styled.a`
   display: flex;
@@ -231,7 +234,6 @@ const CategoriesList = styled.a`
   height: 120px;
   padding: 24px;
   border-radius: 4px;
-  // margin-right: 20px;
   &:last-child {
     margin-right: 0;
   }
@@ -253,7 +255,6 @@ const CategoriesList = styled.a`
   }
   @media screen and (max-width: 620px) {
     height: 40px;
-    margin-right: 10px;
   }
   @media screen and (max-width: 540px) {
     height: 30px;

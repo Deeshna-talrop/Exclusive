@@ -358,26 +358,37 @@ const ProductList = styled.ul`
   justify-content: space-between;
   align-items: flex-start;
   padding: 0;
+  gap: 30px;
   margin-bottom: 20px;
   margin-top: 0;
   width: 100%;
+  @media screen and (max-width: 1440px) {
+    gap: 22px;
+  }
+  @media screen and (max-width: 1024px) {
+    gap: 18px;
+  }
+  @media screen and (max-width: 375px) {
+    gap: 10px;
+  }
 `;
 
 const Product = styled.li`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  display: grid;
+  gap: 20px;
+  min-width: 23%;
+  max-width: 23%;
   align-items: flex-start;
-  max-width: 40%;
-  margin: 0 0 40px 0;
+  // margin: 0 0 40px 0;
   cursor: pointer;
   text-decoration: none;
   @media screen and (max-width: 1440px) {
-    max-width: 28%;
+    margin: 0 0 36px 0;
+  }
+  @media screen and (max-width: 1040px) {
     margin: 0 0 36px 0;
   }
   @media screen and (max-width: 1024px) {
-    max-width: 23%;
     margin: 0 0 36px 0;
   }
   @media screen and (max-width: 960px) {
@@ -398,13 +409,17 @@ const Product = styled.li`
   }
 
   @media screen and (max-width: 620px) {
-    max-width: 30%;
+    min-width: 45%;
   }
   @media screen and (max-width: 540px) {
     max-width: 44%;
   }
   @media screen and (max-width: 425px) {
     max-width: 44%;
+  }
+  @media screen and (max-width: 375px) {
+    min-width: 100%;
+    max-height: 250px;
   }
 `;
 
@@ -414,38 +429,35 @@ const ProductImage = styled.div`
 
   display: flex;
   min-height: 260px;
-  min-width: 260px;
+  /* min-height: 200px; */
+  min-width: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
   @media screen and (max-width: 1440px) {
     min-height: 260px;
-    min-width: 260px;
   }
-  @media screen and (max-width: 1160px) {
+
+  @media screen and (max-width: 1071px) {
     min-height: 240px;
-    min-width: 240px;
+    max-width: 220px;
   }
   @media screen and (max-width: 1046px) {
     min-height: 220px;
-    min-width: 220px;
+    max-width: 220px;
   }
   @media screen and (max-width: 1024px) {
     min-height: 200px;
-    min-width: 200px;
   }
   @media screen and (max-width: 960px) {
     min-height: 180px;
-    min-width: 180px;
   }
   @media screen and (max-width: 820px) {
     min-height: 160px;
-    min-width: 160px;
   }
   @media screen and (max-width: 720px) {
     min-height: 140px;
-    min-width: 130px;
   }
 
   img {
@@ -465,6 +477,10 @@ const ProductImage = styled.div`
     @media screen and (max-width: 540px) {
       width: 50%;
       height: 50%;
+    }
+    @media screen and (max-width: 375px) {
+      width: 40%;
+      height: 40%;
     }
   }
   &:hover {
@@ -529,6 +545,9 @@ const ProductInfo = styled.div`
   gap: 10px;
   text-decoration: none;
 
+  @media screen and (max-width: 1440px) {
+    max-width: 200px;
+  }
   @media screen and (max-width: 960px) {
     gap: 8px;
     margin-top: 10px;
