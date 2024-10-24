@@ -175,7 +175,7 @@ const Divider = styled.div`
     }
   }
 `;
-const SectionTitle = styled.div`
+const SectionTitle = styled.h3`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
