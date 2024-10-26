@@ -7,7 +7,8 @@ import WishList from "../../assets/wishlist.svg";
 import Cart from "../../assets/Cart1.svg";
 import Search from "../../assets/search.svg";
 import { Link } from "react-router-dom";
-
+import DropdownArrow from "../../assets/DropDown.svg";
+import DropdownArrowOpen from "../../assets/DropDownOpen.svg";
 export default function Header() {
   const [selectedOption, setSelectedOption] = useState(null);
 
@@ -41,12 +42,21 @@ export default function Header() {
               Shop Now
             </Link>
           </OfferText>
-          <StyledDropdown
-            options={options}
-            onChange={handleSelect}
-            value={defaultOption}
-            placeholder="Select an option"
-          />
+          <DropdownConatiner>
+            <StyledDropdown
+              options={options}
+              onChange={handleSelect}
+              value={defaultOption}
+              placeholder="Select an option"
+              arrowClosed={<img src={DropdownArrow} alt="cart" />}
+              arrowOpen={<img src={DropdownArrowOpen} alt="cart" />}
+            />
+            {/* <img
+              src={DropdownArrow}
+              alt="cart"
+              style={{ width: "20px", height: "20px" }}
+            /> */}
+          </DropdownConatiner>
         </OfferContainer>
       </Offer>
       <NavBar>
@@ -144,28 +154,44 @@ const OfferText = styled.div`
     }
   }
 `;
-
+const DropdownConatiner = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`;
 const StyledDropdown = styled(Dropdown)`
   border-radius: 5px;
   font-size: 16px;
   display: flex;
-  // margin-right: 20px;
-  // z-index: 1;
-  // position: absolute;
-  // right: 8%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  @media screen and (max-width: 960px) {
+    font-size: 12px;
+  }
+  .Dropdown-placeholder {
+    font-size: 16px;
+    @media screen and (max-width: 960px) {
+      font-size: 12px;
+    }
+  }
 
   @media screen and (max-width: 960px) {
     font-size: 12px;
   }
-  @media screen and (max-width: 540px) {
-    // right: 0px;
-  }
 
   .Dropdown-control {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     border: none;
+    gap: 10px;
     font-size: 16px;
     background-color: #000;
     color: #fff;
+    padding: 0 10px 0 0;
     @media screen and (max-width: 960px) {
       font-size: 12px;
     }
@@ -188,6 +214,9 @@ const StyledDropdown = styled(Dropdown)`
     @media screen and (max-width: 960px) {
       font-size: 12px;
     }
+  }
+  .Dropdown-arrow {
+    display: none;
   }
 `;
 
