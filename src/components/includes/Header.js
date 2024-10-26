@@ -51,11 +51,6 @@ export default function Header() {
               arrowClosed={<img src={DropdownArrow} alt="cart" />}
               arrowOpen={<img src={DropdownArrowOpen} alt="cart" />}
             />
-            {/* <img
-              src={DropdownArrow}
-              alt="cart"
-              style={{ width: "20px", height: "20px" }}
-            /> */}
           </DropdownConatiner>
         </OfferContainer>
       </Offer>
