@@ -162,7 +162,7 @@ const StyledDropdown = styled(Dropdown)`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-right: 10px;
+  padding-left: 10px;
   @media screen and (max-width: 960px) {
     font-size: 12px;
   }
@@ -181,6 +181,8 @@ const StyledDropdown = styled(Dropdown)`
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
+    padding-left: 10px;
     border: none;
     gap: 10px;
     font-size: 16px;

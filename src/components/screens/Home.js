@@ -14,29 +14,31 @@ export default function Home() {
     <>
       <HomeContainer>
         <SpotlightConatiner>
-          <Left>
-            <TextLogo>
-              <Image src={Apple} alt="Image" />
-              <p>Iphone 14 Series</p>
-            </TextLogo>
-            <Title>Up to 10% off Voucher</Title>
-            <Link
-              to="/products"
-              style={{
-                textDecoration: "none",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: "#fff",
-                fontWeight: "600",
-                cursor: "pointer",
-              }}
-            >
-              <ShopNow>Shop Now</ShopNow>
-              <Icon src={Arrow} alt="Image" />
-            </Link>
-          </Left>
-          <HeroImageContainer src={HeroImage} alt="Image" />
+          <Spotlight>
+            <Left>
+              <TextLogo>
+                <Image src={Apple} alt="Image" />
+                <p>Iphone 14 Series</p>
+              </TextLogo>
+              <Title>Up to 10% off Voucher</Title>
+              <Link
+                to="/products"
+                style={{
+                  textDecoration: "none",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  color: "#fff",
+                  fontWeight: "600",
+                  cursor: "pointer",
+                }}
+              >
+                <ShopNow>Shop Now</ShopNow>
+                <Icon src={Arrow} alt="Image" />
+              </Link>
+            </Left>
+            <HeroImageContainer src={HeroImage} alt="Image" />
+          </Spotlight>
         </SpotlightConatiner>
 
         <Categories />
@@ -62,6 +64,31 @@ const HomeContainer = styled.div`
   }
 `;
 const SpotlightConatiner = styled.div`
+  margin: 40px 0px 53px 0;
+  width: 100%;
+  height: 400px;
+  @media screen and (max-width: 1024px) {
+    height: 300px;
+    margin: 40px 0px;
+  }
+  @media screen and (max-width: 960px) {
+    height: 250px;
+    margin: 20px 0px;
+  }
+  @media screen and (max-width: 820px) {
+    height: 200px;
+    margin: 20px 0px;
+  }
+  @media screen and (max-width: 720px) {
+    height: 200px;
+    margin: 20px 0px;
+  }
+  @media screen and (max-width: 540px) {
+    height: 150px;
+    margin: 20px 0px;
+  }
+`;
+const Spotlight = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -70,7 +97,7 @@ const SpotlightConatiner = styled.div`
   width: 100%;
   height: 400px;
   border-radius: 10px;
-  margin: 40px 0px 53px 0;
+  margin: 0 auto;
   overflow: hidden;
   @media screen and (max-width: 1024px) {
     height: 300px;
@@ -98,6 +125,7 @@ const Left = styled.div`
   flex-direction: column;
   align-items: flex-start;
   margin-left: 60px;
+  z-index: 1;
   p {
     color: #fff;
   }
@@ -109,6 +137,7 @@ const Left = styled.div`
   }
   @media screen and (max-width: 540px) {
     margin-left: 20px;
+    min-width: 40%;
   }
 `;
 
@@ -122,7 +151,12 @@ const TextLogo = styled.div`
     margin-bottom: 0px;
   }
   @media screen and (max-width: 540px) {
-    margin-bottom: -6px;
+    margin-bottom: 10px;
+    p {
+      font-size: 12px;
+      line-height: 14px;
+      margin: 0;
+    }
   }
   @media screen and (max-width: 320px) {
     img {
