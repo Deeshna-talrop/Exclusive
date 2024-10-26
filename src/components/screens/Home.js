@@ -23,17 +23,16 @@ export default function Home() {
             <Link
               to="/products"
               style={{
+                textDecoration: "none",
                 display: "flex",
-                flexDirection: "row",
-                border: "none",
+                alignItems: "center",
+                justifyContent: "center",
                 color: "#fff",
-                background: "none",
-                fontSize: "16px",
-                fontWeight: "500",
-                textDecoration: " underline",
+                fontWeight: "600",
+                cursor: "pointer",
               }}
             >
-              Shop Now
+              <ShopNow>Shop Now</ShopNow>
               <Icon src={Arrow} alt="Image" />
             </Link>
           </Left>
@@ -102,7 +101,7 @@ const Left = styled.div`
   p {
     color: #fff;
   }
-  @media screen and (max-width: 820px) {
+  @media screen and (max-width: 920px) {
     margin-left: 40px;
   }
   @media screen and (max-width: 720px) {
@@ -159,18 +158,25 @@ const Title = styled.h1`
     line-height: 52px;
   }
   @media screen and (max-width: 960px) {
-    font-size: 42px;
+    font-size: 40px;
     line-height: 48px;
-  }
+    margin-top:0px;
+    width: 300px;
+    }
   @media screen and (max-width: 820px) {
     font-size: 32px;
     line-height: 40px;
-    margin-bottom: 14px;
+    margin-bottom: 10px;
   }
   @media screen and (max-width: 720px) {
     font-size: 32px;
     line-height: 32px;
-    width: 300px;
+    width: 280px;
+  }
+    @media screen and (max-width: 640px) {
+    font-size: 28px;
+    line-height: 36px;
+    width: 240px;
   }
   @media screen and (max-width: 540px) {
     font-size: 24px;
@@ -189,6 +195,20 @@ const Title = styled.h1`
     font-size: 20px;
     }
     
+  }
+`;
+
+const ShopNow = styled.a`
+  display: flex;
+  flex-direction: row;
+  border: none;
+  color: #fff;
+  background: none;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: underline;
+  @media screen and (max-width: 620px) {
+    font-size: 12px;
   }
 `;
 
@@ -216,23 +236,23 @@ const HeroImageContainer = styled.img`
     padding-top: 100px;
   }
   @media screen and (max-width: 960px) {
-    width: 400px;
+    width: 380px;
     height: 300px;
     padding-top: 100px;
   }
   @media screen and (max-width: 820px) {
-    width: 350px;
-    height: 250px;
+    width: 300px;
+    height: 220px;
     padding-top: 100px;
   }
   @media screen and (max-width: 540px) {
     width: 300px;
     height: 200px;
-    padding-top: 60px;
+    padding-top: 40px;
   }
-  @media screen and (max-width: 540px) {
+  @media screen and (max-width: 340px) {
     width: 250px;
     height: 150px;
-    padding-top: 60px;
+    padding-top: 40px;
   }
 `;

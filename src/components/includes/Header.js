@@ -21,30 +21,33 @@ export default function Header() {
 
   return (
     <HeaderContainer>
-      <Offer className="offer">
-        <OfferText>
-          <p>
-            Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!
-          </p>
-          <Link
-            to="/products"
-            style={{
-              textDecoration: "underline",
-              color: "#fff",
-              fontWeight: "600",
-              marginLeft: "10px",
-              whiteSpace: "nowrap",
-            }}
-          >
-            Shop Now
-          </Link>
-        </OfferText>
-        <StyledDropdown
-          options={options}
-          onChange={handleSelect}
-          value={defaultOption}
-          placeholder="Select an option"
-        />
+      <Offer>
+        <OfferContainer>
+          <OfferText>
+            <p>
+              Summer Sale For All Swim Suits And Free Express Delivery - OFF
+              50%!
+            </p>
+            <Link
+              to="/products"
+              style={{
+                textDecoration: "underline",
+                color: "#fff",
+                fontWeight: "600",
+                marginLeft: "10px",
+                whiteSpace: "nowrap",
+              }}
+            >
+              Shop Now
+            </Link>
+          </OfferText>
+          <StyledDropdown
+            options={options}
+            onChange={handleSelect}
+            value={defaultOption}
+            placeholder="Select an option"
+          />
+        </OfferContainer>
       </Offer>
       <NavBar>
         <LogoContainer>
@@ -92,20 +95,27 @@ const HeaderContainer = styled.div`
 const Offer = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center;
   background: #000;
   color: #fff;
   font-size: 14px;
   align-items: center;
   padding: 4px 0;
-  width: 100%;
+  min-width: 100%;
   @media screen and (max-width: 960px) {
     font-size: 12px;
   }
 `;
-const Div = styled.div``;
-
+const OfferContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 80%;
+  @media screen and (max-width: 960px) {
+    min-width: 85%;
+  }
+`;
 const OfferText = styled.div`
   display: flex;
   flex-direction: row;
@@ -113,15 +123,14 @@ const OfferText = styled.div`
   align-items: center;
   width: 100%;
   white-space: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
   @media screen and (max-width: 960px) {
     margin-left: 0px;
-    overflow: auto;
   }
   @media screen and (max-width: 660px) {
     margin-left: 20px;
     justify-content: flex-start;
-    overflow: scroll;
-    overflow-x: hidden;
   }
 
   @media screen and (max-width: 0px) {
@@ -129,8 +138,6 @@ const OfferText = styled.div`
     font-size: 12px;
     margin-left: 12px;
     white-space: nowrap;
-    overflow: auto;
-    overflow-x: scroll;
     justify-content: flex-start;
     p {
       padding-left: 20px;
@@ -142,15 +149,16 @@ const StyledDropdown = styled(Dropdown)`
   border-radius: 5px;
   font-size: 16px;
   display: flex;
-  margin-right: 20px;
-  z-index: 1;
-  position: absolute;
-  right: 0;
+  // margin-right: 20px;
+  // z-index: 1;
+  // position: absolute;
+  // right: 8%;
+
   @media screen and (max-width: 960px) {
     font-size: 12px;
   }
   @media screen and (max-width: 540px) {
-    right: 0px;
+    // right: 0px;
   }
 
   .Dropdown-control {
