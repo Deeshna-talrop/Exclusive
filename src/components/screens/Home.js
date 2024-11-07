@@ -56,6 +56,7 @@ const HomeContainer = styled.div`
   max-width: 80%;
   margin: 0 auto;
   overflow: hidden;
+
   @media screen and (max-width: 1024px) {
     max-width: 85%;
   }
@@ -64,7 +65,7 @@ const HomeContainer = styled.div`
   }
 `;
 const SpotlightConatiner = styled.div`
-  margin: 40px 0px 53px 0;
+  padding: 40px 0px 53px 0;
   width: 100%;
   height: 400px;
   @media screen and (max-width: 1024px) {
