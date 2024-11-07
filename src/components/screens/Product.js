@@ -226,46 +226,114 @@ const ProductImage = styled.div`
   background-color: #f0f0f0;
 
   display: flex;
-  min-height: 550px;
-  min-width: 50%;
+  min-height: 260px;
+  /* min-height: 200px; */
+  min-width: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
-  @media screen and (max-width: 1160px) {
-    min-height: 550px;
+  @media screen and (max-width: 1440px) {
+    min-height: 260px;
+  }
+
+  @media screen and (max-width: 1071px) {
+    min-height: 240px;
+    max-width: 220px;
   }
   @media screen and (max-width: 1046px) {
-    min-height: 550px;
+    min-height: 220px;
+    max-width: 220px;
   }
   @media screen and (max-width: 1024px) {
-    min-height: 500px;
+    min-height: 200px;
   }
   @media screen and (max-width: 960px) {
-    min-height: 450px;
+    min-height: 180px;
   }
   @media screen and (max-width: 820px) {
-    min-height: 400px;
+    min-height: 160px;
   }
   @media screen and (max-width: 720px) {
-    min-height: 350px;
+    min-height: 140px;
   }
   @media screen and (max-width: 620px) {
-    min-width: 100%;
-  }
-  @media screen and (max-width: 425px) {
-    min-width: 100%;
-    min-height: 250px;
+    min-height: 140px;
+    max-height: 140px;
   }
 
   img {
-    width: 50%;
-    height: 50%;
+    width: 60%;
+    height: 60%;
     border-radius: 4px;
     object-position: center;
     object-fit: contain;
-    @media screen and (max-width: 620px) {
+    @media screen and (max-width: 1024px) {
+      width: 55%;
+      height: 55%;
+    }
+    @media screen and (max-width: 960px) {
+      width: 45%;
+      height: 55%;
+    }
+    @media screen and (max-width: 540px) {
       width: 50%;
+      height: 50%;
+    }
+    @media screen and (max-width: 620px) {
+      width: 40%;
+      height: 40%;
+    }
+    @media screen and (max-width: 375px) {
+      width: 40%;
+      height: 40%;
+    }
+    @media screen and (max-width: 320px) {
+      width: 20%;
+      height: 20%;
+    }
+  }
+
+  button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 20%;
+    color: #fff;
+    text-decoration: none;
+    background-color: #000;
+    border: none;
+    border-radius: 0 0 6px 6px;
+    visibility: hidden;
+    opacity: 0;
+    cursor: pointer;
+    transition: visibility 0.3s linear, opacity 0.3s linear;
+  }
+  &:hover {
+    button {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+  @media (max-width: 375px) {
+    button {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 24%;
+      visibility: visible;
+      opacity: 1;
+      border-radius: 0 0 6px 6px;
+      z-index: 10;
+    }
+
+    &:hover button {
+      visibility: visible;
+      opacity: 1;
     }
   }
 `;

@@ -411,7 +411,6 @@ const Product = styled.li`
   min-width: 23%;
   max-width: 23%;
   align-items: flex-start;
-  // margin: 0 0 40px 0;
   cursor: pointer;
   text-decoration: none;
   @media screen and (max-width: 1440px) {
@@ -461,7 +460,6 @@ const ProductImage = styled.div`
 
   display: flex;
   min-height: 260px;
-  /* min-height: 200px; */
   min-width: 100%;
   flex-direction: column;
   justify-content: center;
@@ -491,6 +489,14 @@ const ProductImage = styled.div`
   @media screen and (max-width: 720px) {
     min-height: 140px;
   }
+  @media screen and (max-width: 620px) {
+    min-height: 150px;
+    max-height: 150px;
+  }
+  @media screen and (max-width: 375px) {
+    min-height: 200px;
+    max-height: 200px;
+  }
 
   img {
     width: 60%;
@@ -510,9 +516,13 @@ const ProductImage = styled.div`
       width: 50%;
       height: 50%;
     }
-    @media screen and (max-width: 375px) {
+    @media screen and (max-width: 620px) {
       width: 40%;
       height: 40%;
+    }
+    @media screen and (max-width: 375px) {
+      width: 36%;
+      height: 36%;
     }
   }
 
