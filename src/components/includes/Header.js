@@ -82,7 +82,10 @@ export default function Header() {
           </li>
         </NavBarList>
         <NavBarRight>
-          <Input placeholder="What are you looking for?" />
+          <SearchBar>
+            <Input placeholder="What are you looking for?" />
+            <img src={Search} alt="wishlist" />
+          </SearchBar>
           <a href="">
             <img src={WishList} alt="wishlist" />
           </a>
@@ -230,6 +233,11 @@ const NavBar = styled.div`
   }
   @media screen and (max-width: 820px) {
     padding: 10px 40px 10px 40px;
+    width: 100%;
+  }
+    @media screen and (max-width: 560px) {
+    margin: 0;
+    }
   }
 `;
 const LogoContainer = styled.h1`
@@ -257,6 +265,9 @@ const NavBarList = styled.ul`
   align-items: center;
   list-style: none;
   margin-left: 40px;
+  @media screen and (max-width: 560px) {
+    padding-left: 12px;
+  }
   li {
     margin: 0 20px;
     font-size: 16px;
@@ -280,6 +291,7 @@ const NavBarList = styled.ul`
     @media screen and (max-width: 620px) {
       margin: 0 10px;
     }
+
     @media screen and (max-width: 540px) {
       display: none;
     }
@@ -314,14 +326,14 @@ const NavBarRight = styled.div`
     }
   }
 `;
-const Input = styled.input`
-  background-image: url(${Search});
-  background-repeat: no-repeat;
-  background-position: 180px 12px;
-  background-size: 20px;
+const SearchBar = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   width: 200px;
   height: 22px;
-  padding: 12px 7px 12px 12px;
+  padding: 12px 12px 12px 12px;
   border: none;
   background-color: #f5f5f5;
   border-radius: 4px;
@@ -331,19 +343,28 @@ const Input = styled.input`
     width: 160px;
     font-size: 12px;
     padding: 7px 7px;
-    background-position: 148px 10px;
-    background-size: 16px;
   }
   @media screen and (max-width: 820px) {
     width: 26px;
     height: 26px;
-    background-position: center center;
-    background-size: 16px;
     border-radius: 0;
     border: none;
     font-size: 0;
     background-color: transparent;
     padding: 0;
+  }
+`;
+const Input = styled.input`
+  border: none;
+  background-color: transparent;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+  @media screen and (max-width: 960px) {
+    font-size: 12px;
+  }
+  @media screen and (max-width: 820px) {
+    display: none;
   }
 `;
 const Icon = styled.div`
